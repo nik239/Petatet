@@ -1,0 +1,502 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A85AACD92BB3603200B6E8C4 /* PetatetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AACD82BB3603200B6E8C4 /* PetatetApp.swift */; };
+		A85AACDB2BB3603200B6E8C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AACDA2BB3603200B6E8C4 /* ContentView.swift */; };
+		A85AACDD2BB3603400B6E8C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A85AACDC2BB3603400B6E8C4 /* Assets.xcassets */; };
+		A85AACE02BB3603400B6E8C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A85AACDF2BB3603400B6E8C4 /* Preview Assets.xcassets */; };
+		A85AACEA2BB3603500B6E8C4 /* PetatetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AACE92BB3603500B6E8C4 /* PetatetTests.swift */; };
+		A85AAD042BB360AD00B6E8C4 /* WoWonderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AAD032BB360AD00B6E8C4 /* WoWonderService.swift */; };
+		A85AAD092BB3670600B6E8C4 /* WoWonderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AAD082BB3670600B6E8C4 /* WoWonderTests.swift */; };
+		A85AAD0C2BB3692C00B6E8C4 /* StringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AAD0B2BB3692C00B6E8C4 /* StringError.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A85AACE62BB3603500B6E8C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A85AACCD2BB3603200B6E8C4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A85AACD42BB3603200B6E8C4;
+			remoteInfo = Petatet;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A85AACD52BB3603200B6E8C4 /* Petatet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petatet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A85AACD82BB3603200B6E8C4 /* PetatetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetatetApp.swift; sourceTree = "<group>"; };
+		A85AACDA2BB3603200B6E8C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A85AACDC2BB3603400B6E8C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A85AACDF2BB3603400B6E8C4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A85AACE52BB3603500B6E8C4 /* PetatetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PetatetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A85AACE92BB3603500B6E8C4 /* PetatetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetatetTests.swift; sourceTree = "<group>"; };
+		A85AAD032BB360AD00B6E8C4 /* WoWonderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoWonderService.swift; sourceTree = "<group>"; };
+		A85AAD082BB3670600B6E8C4 /* WoWonderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoWonderTests.swift; sourceTree = "<group>"; };
+		A85AAD0B2BB3692C00B6E8C4 /* StringError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringError.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A85AACD22BB3603200B6E8C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A85AACE22BB3603500B6E8C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A85AACCC2BB3603200B6E8C4 = {
+			isa = PBXGroup;
+			children = (
+				A85AACD72BB3603200B6E8C4 /* Petatet */,
+				A85AACE82BB3603500B6E8C4 /* PetatetTests */,
+				A85AACD62BB3603200B6E8C4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A85AACD62BB3603200B6E8C4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A85AACD52BB3603200B6E8C4 /* Petatet.app */,
+				A85AACE52BB3603500B6E8C4 /* PetatetTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A85AACD72BB3603200B6E8C4 /* Petatet */ = {
+			isa = PBXGroup;
+			children = (
+				A85AAD0A2BB3691200B6E8C4 /* Utilities */,
+				A85AAD022BB3605D00B6E8C4 /* Services */,
+				A85AACD82BB3603200B6E8C4 /* PetatetApp.swift */,
+				A85AACDA2BB3603200B6E8C4 /* ContentView.swift */,
+				A85AACDC2BB3603400B6E8C4 /* Assets.xcassets */,
+				A85AACDE2BB3603400B6E8C4 /* Preview Content */,
+			);
+			path = Petatet;
+			sourceTree = "<group>";
+		};
+		A85AACDE2BB3603400B6E8C4 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				A85AACDF2BB3603400B6E8C4 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A85AACE82BB3603500B6E8C4 /* PetatetTests */ = {
+			isa = PBXGroup;
+			children = (
+				A85AACE92BB3603500B6E8C4 /* PetatetTests.swift */,
+				A85AAD082BB3670600B6E8C4 /* WoWonderTests.swift */,
+			);
+			path = PetatetTests;
+			sourceTree = "<group>";
+		};
+		A85AAD022BB3605D00B6E8C4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A85AAD032BB360AD00B6E8C4 /* WoWonderService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A85AAD0A2BB3691200B6E8C4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A85AAD0B2BB3692C00B6E8C4 /* StringError.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A85AACD42BB3603200B6E8C4 /* Petatet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A85AACF92BB3603500B6E8C4 /* Build configuration list for PBXNativeTarget "Petatet" */;
+			buildPhases = (
+				A85AACD12BB3603200B6E8C4 /* Sources */,
+				A85AACD22BB3603200B6E8C4 /* Frameworks */,
+				A85AACD32BB3603200B6E8C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Petatet;
+			productName = Petatet;
+			productReference = A85AACD52BB3603200B6E8C4 /* Petatet.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A85AACE42BB3603500B6E8C4 /* PetatetTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A85AACFC2BB3603500B6E8C4 /* Build configuration list for PBXNativeTarget "PetatetTests" */;
+			buildPhases = (
+				A85AACE12BB3603500B6E8C4 /* Sources */,
+				A85AACE22BB3603500B6E8C4 /* Frameworks */,
+				A85AACE32BB3603500B6E8C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A85AACE72BB3603500B6E8C4 /* PBXTargetDependency */,
+			);
+			name = PetatetTests;
+			productName = PetatetTests;
+			productReference = A85AACE52BB3603500B6E8C4 /* PetatetTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A85AACCD2BB3603200B6E8C4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					A85AACD42BB3603200B6E8C4 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					A85AACE42BB3603500B6E8C4 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = A85AACD42BB3603200B6E8C4;
+					};
+				};
+			};
+			buildConfigurationList = A85AACD02BB3603200B6E8C4 /* Build configuration list for PBXProject "Petatet" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A85AACCC2BB3603200B6E8C4;
+			productRefGroup = A85AACD62BB3603200B6E8C4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A85AACD42BB3603200B6E8C4 /* Petatet */,
+				A85AACE42BB3603500B6E8C4 /* PetatetTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A85AACD32BB3603200B6E8C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A85AACE02BB3603400B6E8C4 /* Preview Assets.xcassets in Resources */,
+				A85AACDD2BB3603400B6E8C4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A85AACE32BB3603500B6E8C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A85AACD12BB3603200B6E8C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A85AAD042BB360AD00B6E8C4 /* WoWonderService.swift in Sources */,
+				A85AAD0C2BB3692C00B6E8C4 /* StringError.swift in Sources */,
+				A85AACDB2BB3603200B6E8C4 /* ContentView.swift in Sources */,
+				A85AACD92BB3603200B6E8C4 /* PetatetApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A85AACE12BB3603500B6E8C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A85AAD092BB3670600B6E8C4 /* WoWonderTests.swift in Sources */,
+				A85AACEA2BB3603500B6E8C4 /* PetatetTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A85AACE72BB3603500B6E8C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A85AACD42BB3603200B6E8C4 /* Petatet */;
+			targetProxy = A85AACE62BB3603500B6E8C4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A85AACF72BB3603500B6E8C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A85AACF82BB3603500B6E8C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A85AACFA2BB3603500B6E8C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Petatet/Preview Content\"";
+				DEVELOPMENT_TEAM = YSWM5SJ596;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikivanov.Petatet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A85AACFB2BB3603500B6E8C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Petatet/Preview Content\"";
+				DEVELOPMENT_TEAM = YSWM5SJ596;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikivanov.Petatet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A85AACFD2BB3603500B6E8C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YSWM5SJ596;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikivanov.PetatetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Petatet.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Petatet";
+			};
+			name = Debug;
+		};
+		A85AACFE2BB3603500B6E8C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = YSWM5SJ596;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikivanov.PetatetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Petatet.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Petatet";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A85AACD02BB3603200B6E8C4 /* Build configuration list for PBXProject "Petatet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A85AACF72BB3603500B6E8C4 /* Debug */,
+				A85AACF82BB3603500B6E8C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A85AACF92BB3603500B6E8C4 /* Build configuration list for PBXNativeTarget "Petatet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A85AACFA2BB3603500B6E8C4 /* Debug */,
+				A85AACFB2BB3603500B6E8C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A85AACFC2BB3603500B6E8C4 /* Build configuration list for PBXNativeTarget "PetatetTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A85AACFD2BB3603500B6E8C4 /* Debug */,
+				A85AACFE2BB3603500B6E8C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A85AACCD2BB3603200B6E8C4 /* Project object */;
+}
