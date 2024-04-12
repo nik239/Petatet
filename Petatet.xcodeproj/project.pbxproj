@@ -12,9 +12,13 @@
 		A85AACDD2BB3603400B6E8C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A85AACDC2BB3603400B6E8C4 /* Assets.xcassets */; };
 		A85AACE02BB3603400B6E8C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A85AACDF2BB3603400B6E8C4 /* Preview Assets.xcassets */; };
 		A85AACEA2BB3603500B6E8C4 /* PetatetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AACE92BB3603500B6E8C4 /* PetatetTests.swift */; };
-		A85AAD042BB360AD00B6E8C4 /* WoWonderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AAD032BB360AD00B6E8C4 /* WoWonderService.swift */; };
-		A85AAD092BB3670600B6E8C4 /* WoWonderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AAD082BB3670600B6E8C4 /* WoWonderTests.swift */; };
+		A85AAD042BB360AD00B6E8C4 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AAD032BB360AD00B6E8C4 /* APIService.swift */; };
+		A85AAD092BB3670600B6E8C4 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AAD082BB3670600B6E8C4 /* APIServiceTests.swift */; };
 		A85AAD0C2BB3692C00B6E8C4 /* StringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AAD0B2BB3692C00B6E8C4 /* StringError.swift */; };
+		A87B72622BB5EDBC00B7A1EA /* WoWonderTimelineSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A87B72612BB5EDBC00B7A1EA /* WoWonderTimelineSDK.framework */; };
+		A87B72632BB5EDBC00B7A1EA /* WoWonderTimelineSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A87B72612BB5EDBC00B7A1EA /* WoWonderTimelineSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A87B72662BB5EDF300B7A1EA /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87B72652BB5EDF300B7A1EA /* APIClient.swift */; };
+		A89F207E2BC4635A00108B67 /* APIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89F207D2BC4635A00108B67 /* APIResponses.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +31,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A87B72642BB5EDBC00B7A1EA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A87B72632BB5EDBC00B7A1EA /* WoWonderTimelineSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		A85AACD52BB3603200B6E8C4 /* Petatet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petatet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A85AACD82BB3603200B6E8C4 /* PetatetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetatetApp.swift; sourceTree = "<group>"; };
@@ -35,9 +53,12 @@
 		A85AACDF2BB3603400B6E8C4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A85AACE52BB3603500B6E8C4 /* PetatetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PetatetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A85AACE92BB3603500B6E8C4 /* PetatetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetatetTests.swift; sourceTree = "<group>"; };
-		A85AAD032BB360AD00B6E8C4 /* WoWonderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoWonderService.swift; sourceTree = "<group>"; };
-		A85AAD082BB3670600B6E8C4 /* WoWonderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoWonderTests.swift; sourceTree = "<group>"; };
+		A85AAD032BB360AD00B6E8C4 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		A85AAD082BB3670600B6E8C4 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
 		A85AAD0B2BB3692C00B6E8C4 /* StringError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringError.swift; sourceTree = "<group>"; };
+		A87B72612BB5EDBC00B7A1EA /* WoWonderTimelineSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WoWonderTimelineSDK.framework; path = ../PetatetTimelineiOS/WoWonderTimelineSDK.framework; sourceTree = "<group>"; };
+		A87B72652BB5EDF300B7A1EA /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		A89F207D2BC4635A00108B67 /* APIResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponses.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A87B72622BB5EDBC00B7A1EA /* WoWonderTimelineSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,8 +84,9 @@
 			isa = PBXGroup;
 			children = (
 				A85AACD72BB3603200B6E8C4 /* Petatet */,
-				A85AACE82BB3603500B6E8C4 /* PetatetTests */,
 				A85AACD62BB3603200B6E8C4 /* Products */,
+				A87B72602BB5EDBC00B7A1EA /* Frameworks */,
+				A85AACE82BB3603500B6E8C4 /* PetatetTests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,9 +102,11 @@
 		A85AACD72BB3603200B6E8C4 /* Petatet */ = {
 			isa = PBXGroup;
 			children = (
+				A89F207B2BC462EC00108B67 /* Model */,
 				A85AAD0A2BB3691200B6E8C4 /* Utilities */,
 				A85AAD022BB3605D00B6E8C4 /* Services */,
 				A85AACD82BB3603200B6E8C4 /* PetatetApp.swift */,
+				A87B72652BB5EDF300B7A1EA /* APIClient.swift */,
 				A85AACDA2BB3603200B6E8C4 /* ContentView.swift */,
 				A85AACDC2BB3603400B6E8C4 /* Assets.xcassets */,
 				A85AACDE2BB3603400B6E8C4 /* Preview Content */,
@@ -100,8 +125,8 @@
 		A85AACE82BB3603500B6E8C4 /* PetatetTests */ = {
 			isa = PBXGroup;
 			children = (
+				A85AAD082BB3670600B6E8C4 /* APIServiceTests.swift */,
 				A85AACE92BB3603500B6E8C4 /* PetatetTests.swift */,
-				A85AAD082BB3670600B6E8C4 /* WoWonderTests.swift */,
 			);
 			path = PetatetTests;
 			sourceTree = "<group>";
@@ -109,7 +134,7 @@
 		A85AAD022BB3605D00B6E8C4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				A85AAD032BB360AD00B6E8C4 /* WoWonderService.swift */,
+				A85AAD032BB360AD00B6E8C4 /* APIService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -122,6 +147,22 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		A87B72602BB5EDBC00B7A1EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A87B72612BB5EDBC00B7A1EA /* WoWonderTimelineSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A89F207B2BC462EC00108B67 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A89F207D2BC4635A00108B67 /* APIResponses.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,6 +173,7 @@
 				A85AACD12BB3603200B6E8C4 /* Sources */,
 				A85AACD22BB3603200B6E8C4 /* Frameworks */,
 				A85AACD32BB3603200B6E8C4 /* Resources */,
+				A87B72642BB5EDBC00B7A1EA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -222,10 +264,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A85AAD042BB360AD00B6E8C4 /* WoWonderService.swift in Sources */,
+				A85AAD042BB360AD00B6E8C4 /* APIService.swift in Sources */,
 				A85AAD0C2BB3692C00B6E8C4 /* StringError.swift in Sources */,
 				A85AACDB2BB3603200B6E8C4 /* ContentView.swift in Sources */,
+				A87B72662BB5EDF300B7A1EA /* APIClient.swift in Sources */,
 				A85AACD92BB3603200B6E8C4 /* PetatetApp.swift in Sources */,
+				A89F207E2BC4635A00108B67 /* APIResponses.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,7 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A85AAD092BB3670600B6E8C4 /* WoWonderTests.swift in Sources */,
+				A85AAD092BB3670600B6E8C4 /* APIServiceTests.swift in Sources */,
 				A85AACEA2BB3603500B6E8C4 /* PetatetTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,6 +422,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Petatet/Preview Content\"";
 				DEVELOPMENT_TEAM = YSWM5SJ596;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)TimelineiOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -407,6 +455,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Petatet/Preview Content\"";
 				DEVELOPMENT_TEAM = YSWM5SJ596;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)TimelineiOS",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
