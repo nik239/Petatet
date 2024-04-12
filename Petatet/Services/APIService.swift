@@ -22,7 +22,7 @@ struct APIService {
     let infoJSON = try handleResponse(data, response) {
       let json = try JSONSerialization.jsonObject(with: data)
       let dict = json as? [String: Any]
-      return dictt
+      return dict
     }
     
     return infoJSON
