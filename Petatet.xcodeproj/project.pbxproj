@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A81D03482BCB65B500463E97 /* Sha256.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D03472BCB65B500463E97 /* Sha256.swift */; };
+		A851C6732BD8071A0074E8C2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A851C6722BD8071A0074E8C2 /* Alamofire */; };
+		A851C6752BD8071A0074E8C2 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = A851C6742BD8071A0074E8C2 /* AlamofireDynamic */; };
 		A85AACD92BB3603200B6E8C4 /* PetatetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AACD82BB3603200B6E8C4 /* PetatetApp.swift */; };
 		A85AACDB2BB3603200B6E8C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AACDA2BB3603200B6E8C4 /* ContentView.swift */; };
 		A85AACDD2BB3603400B6E8C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A85AACDC2BB3603400B6E8C4 /* Assets.xcassets */; };
@@ -46,6 +49,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A81D03472BCB65B500463E97 /* Sha256.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sha256.swift; sourceTree = "<group>"; };
 		A85AACD52BB3603200B6E8C4 /* Petatet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petatet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A85AACD82BB3603200B6E8C4 /* PetatetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetatetApp.swift; sourceTree = "<group>"; };
 		A85AACDA2BB3603200B6E8C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A87B72622BB5EDBC00B7A1EA /* WoWonderTimelineSDK.framework in Frameworks */,
+				A851C6752BD8071A0074E8C2 /* AlamofireDynamic in Frameworks */,
+				A851C6732BD8071A0074E8C2 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				A85AAD0B2BB3692C00B6E8C4 /* StringError.swift */,
+				A81D03472BCB65B500463E97 /* Sha256.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -180,6 +187,10 @@
 			dependencies = (
 			);
 			name = Petatet;
+			packageProductDependencies = (
+				A851C6722BD8071A0074E8C2 /* Alamofire */,
+				A851C6742BD8071A0074E8C2 /* AlamofireDynamic */,
+			);
 			productName = Petatet;
 			productReference = A85AACD52BB3603200B6E8C4 /* Petatet.app */;
 			productType = "com.apple.product-type.application";
@@ -230,6 +241,9 @@
 				Base,
 			);
 			mainGroup = A85AACCC2BB3603200B6E8C4;
+			packageReferences = (
+				A851C6712BD8071A0074E8C2 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = A85AACD62BB3603200B6E8C4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -266,6 +280,7 @@
 			files = (
 				A85AAD042BB360AD00B6E8C4 /* APIService.swift in Sources */,
 				A85AAD0C2BB3692C00B6E8C4 /* StringError.swift in Sources */,
+				A81D03482BCB65B500463E97 /* Sha256.swift in Sources */,
 				A85AACDB2BB3603200B6E8C4 /* ContentView.swift in Sources */,
 				A87B72662BB5EDF300B7A1EA /* APIClient.swift in Sources */,
 				A85AACD92BB3603200B6E8C4 /* PetatetApp.swift in Sources */,
@@ -549,6 +564,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A851C6712BD8071A0074E8C2 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A851C6722BD8071A0074E8C2 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A851C6712BD8071A0074E8C2 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		A851C6742BD8071A0074E8C2 /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A851C6712BD8071A0074E8C2 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A85AACCD2BB3603200B6E8C4 /* Project object */;
 }
