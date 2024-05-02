@@ -6,8 +6,14 @@
 //
 
 struct AuthResponse: Decodable {
-  let api_status: String
+  let api_status: Int
   let access_token: String
   let user_id: String
   let timezone: String
 }
+
+struct GetPostsResponse: Decodable {
+  let api_status: Int
+  let data: [Post]
+}
+

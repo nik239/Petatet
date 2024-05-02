@@ -18,10 +18,9 @@
 		A85AAD042BB360AD00B6E8C4 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AAD032BB360AD00B6E8C4 /* APIService.swift */; };
 		A85AAD092BB3670600B6E8C4 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AAD082BB3670600B6E8C4 /* APIServiceTests.swift */; };
 		A85AAD0C2BB3692C00B6E8C4 /* StringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AAD0B2BB3692C00B6E8C4 /* StringError.swift */; };
-		A87B72622BB5EDBC00B7A1EA /* WoWonderTimelineSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A87B72612BB5EDBC00B7A1EA /* WoWonderTimelineSDK.framework */; };
-		A87B72632BB5EDBC00B7A1EA /* WoWonderTimelineSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A87B72612BB5EDBC00B7A1EA /* WoWonderTimelineSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A87B72662BB5EDF300B7A1EA /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87B72652BB5EDF300B7A1EA /* APIClient.swift */; };
 		A89F207E2BC4635A00108B67 /* APIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89F207D2BC4635A00108B67 /* APIResponses.swift */; };
+		A8B03F552BDC659E006317B3 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B03F542BDC659E006317B3 /* Endpoints.swift */; };
+		A8DBC8AC2BE32A89008AA7E7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DBC8AB2BE32A89008AA7E7 /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +40,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A87B72632BB5EDBC00B7A1EA /* WoWonderTimelineSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,9 +58,9 @@
 		A85AAD032BB360AD00B6E8C4 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		A85AAD082BB3670600B6E8C4 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
 		A85AAD0B2BB3692C00B6E8C4 /* StringError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringError.swift; sourceTree = "<group>"; };
-		A87B72612BB5EDBC00B7A1EA /* WoWonderTimelineSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WoWonderTimelineSDK.framework; path = ../PetatetTimelineiOS/WoWonderTimelineSDK.framework; sourceTree = "<group>"; };
-		A87B72652BB5EDF300B7A1EA /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		A89F207D2BC4635A00108B67 /* APIResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponses.swift; sourceTree = "<group>"; };
+		A8B03F542BDC659E006317B3 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		A8DBC8AB2BE32A89008AA7E7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +68,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A87B72622BB5EDBC00B7A1EA /* WoWonderTimelineSDK.framework in Frameworks */,
 				A851C6752BD8071A0074E8C2 /* AlamofireDynamic in Frameworks */,
 				A851C6732BD8071A0074E8C2 /* Alamofire in Frameworks */,
 			);
@@ -91,7 +88,6 @@
 			children = (
 				A85AACD72BB3603200B6E8C4 /* Petatet */,
 				A85AACD62BB3603200B6E8C4 /* Products */,
-				A87B72602BB5EDBC00B7A1EA /* Frameworks */,
 				A85AACE82BB3603500B6E8C4 /* PetatetTests */,
 			);
 			sourceTree = "<group>";
@@ -108,12 +104,11 @@
 		A85AACD72BB3603200B6E8C4 /* Petatet */ = {
 			isa = PBXGroup;
 			children = (
-				A89F207B2BC462EC00108B67 /* Model */,
-				A85AAD0A2BB3691200B6E8C4 /* Utilities */,
-				A85AAD022BB3605D00B6E8C4 /* Services */,
 				A85AACD82BB3603200B6E8C4 /* PetatetApp.swift */,
-				A87B72652BB5EDF300B7A1EA /* APIClient.swift */,
 				A85AACDA2BB3603200B6E8C4 /* ContentView.swift */,
+				A89F207B2BC462EC00108B67 /* Model */,
+				A85AAD022BB3605D00B6E8C4 /* Services */,
+				A85AAD0A2BB3691200B6E8C4 /* Utilities */,
 				A85AACDC2BB3603400B6E8C4 /* Assets.xcassets */,
 				A85AACDE2BB3603400B6E8C4 /* Preview Content */,
 			);
@@ -140,7 +135,7 @@
 		A85AAD022BB3605D00B6E8C4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				A85AAD032BB360AD00B6E8C4 /* APIService.swift */,
+				A8B03F532BDC6583006317B3 /* APIService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -154,20 +149,22 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		A87B72602BB5EDBC00B7A1EA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A87B72612BB5EDBC00B7A1EA /* WoWonderTimelineSDK.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		A89F207B2BC462EC00108B67 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				A89F207D2BC4635A00108B67 /* APIResponses.swift */,
+				A8DBC8AB2BE32A89008AA7E7 /* Post.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A8B03F532BDC6583006317B3 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				A85AAD032BB360AD00B6E8C4 /* APIService.swift */,
+				A8B03F542BDC659E006317B3 /* Endpoints.swift */,
+			);
+			path = APIService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,9 +278,10 @@
 				A85AAD042BB360AD00B6E8C4 /* APIService.swift in Sources */,
 				A85AAD0C2BB3692C00B6E8C4 /* StringError.swift in Sources */,
 				A81D03482BCB65B500463E97 /* Sha256.swift in Sources */,
+				A8DBC8AC2BE32A89008AA7E7 /* Post.swift in Sources */,
 				A85AACDB2BB3603200B6E8C4 /* ContentView.swift in Sources */,
-				A87B72662BB5EDF300B7A1EA /* APIClient.swift in Sources */,
 				A85AACD92BB3603200B6E8C4 /* PetatetApp.swift in Sources */,
+				A8B03F552BDC659E006317B3 /* Endpoints.swift in Sources */,
 				A89F207E2BC4635A00108B67 /* APIResponses.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
