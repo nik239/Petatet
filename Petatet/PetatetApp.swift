@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct PetatetApp: App {
+  let container = DIContainer(services: DIContainer.Services(APIService: RealAPIService(),
+                                                             MediaLoader: BetterMediaLoader()))
     var body: some Scene {
         WindowGroup {
-            ContentView()
+          ContentView(container: container)
+            .accentColor(.orange)
         }
     }
 }

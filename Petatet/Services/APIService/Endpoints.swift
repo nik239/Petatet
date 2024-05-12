@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension APIService {
+extension RealAPIService {
   enum Endpoint: String {
     case auth = "auth"
     case getFeed = "posts"
