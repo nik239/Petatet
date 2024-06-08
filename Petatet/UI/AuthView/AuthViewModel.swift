@@ -18,7 +18,8 @@ enum AuthState {
   case authenticated
 }
 
-@MainActor final class AuthViewModel: ObservableObject {
+@MainActor 
+final class AuthViewModel: ObservableObject {
   @Published var authState: AuthState = .unauthenticated
   @Published var flow: AuthFlow = .login
   

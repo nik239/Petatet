@@ -41,6 +41,5 @@ struct PhotoView: View {
 
 #Preview {
   return PhotoView(loader: {
-    StubMediaLoader().file(LocalFiles.dog,
-    isVideo: false)})
+    StubMediaLoader().file(LocalFiles.dog)})
 }

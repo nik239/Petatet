@@ -47,6 +47,6 @@ struct VideoView: View {
 
 #Preview {
   return VideoView(loader: {
-    StubMediaLoader().file(LocalFiles.dogMovie, isVideo: true)
+    StubMediaLoader().file(LocalFiles.dogMovie)
   })
 }

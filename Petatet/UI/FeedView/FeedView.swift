@@ -11,15 +11,18 @@ struct FeedView: View {
   @ObservedObject var viewModel: FeedViewModel
   
   var body: some View {
-    VStack (alignment: .leading) {
-      ScrollView(.vertical, showsIndicators: false) {
-        ForEach(viewModel.posts ?? []) { post in
+    ScrollView(.vertical, showsIndicators: false) {
+      VStack (alignment: .leading) {
+        ForEach(viewModel.allPosts ?? []) { post in
           PostView(post: post,
                    viewModel: PostViewModel(container: viewModel.container))
-            .padding(.vertical)
+          .padding(.vertical)
+          .id(post.id)
         }
       }
+      .scrollTargetLayout()
     }
+    .scrollPosition(id: $viewModel.scrolledID)
     .task {
       await viewModel.loadPosts()
     }

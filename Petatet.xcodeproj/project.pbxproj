@@ -18,10 +18,6 @@
 		A80019F92BEC673800232C76 /* Likes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80019F82BEC673700232C76 /* Likes.swift */; };
 		A80019FB2BEC67F600232C76 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80019FA2BEC67F600232C76 /* Author.swift */; };
 		A80019FF2BEC6FDF00232C76 /* PreviewPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80019FE2BEC6FDF00232C76 /* PreviewPosts.swift */; };
-		A8001A042BEC71DD00232C76 /* Dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8001A032BEC71DD00232C76 /* Dog.jpg */; };
-		A8001A062BEC71E300232C76 /* LongDog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8001A052BEC71E300232C76 /* LongDog.jpg */; };
-		A8001A082BEC71E800232C76 /* GrassDog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8001A072BEC71E800232C76 /* GrassDog.jpg */; };
-		A8001A0A2BEC71F400232C76 /* DogMovie.mov in Resources */ = {isa = PBXBuildFile; fileRef = A8001A092BEC71F400232C76 /* DogMovie.mov */; };
 		A8001A0E2BEC734C00232C76 /* MediaLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8001A0D2BEC734C00232C76 /* MediaLoader.swift */; };
 		A8001A112BED35A000232C76 /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8001A102BED35A000232C76 /* DIContainer.swift */; };
 		A8001A142BED36FA00232C76 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8001A132BED36FA00232C76 /* PostViewModel.swift */; };
@@ -33,16 +29,18 @@
 		A8001A232BED661500232C76 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8001A222BED661500232C76 /* Media.swift */; };
 		A8001A252BED97C500232C76 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8001A242BED97C500232C76 /* Cache.swift */; };
 		A8001A272BEDB27000232C76 /* ScrollIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8001A262BEDB27000232C76 /* ScrollIndicator.swift */; };
-		A8001A292BEDB78D00232C76 /* avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8001A282BEDB78D00232C76 /* avatar.jpg */; };
 		A8001A2B2BEDBBB800232C76 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8001A2A2BEDBBB800232C76 /* Color.swift */; };
 		A8001A2F2BEDD28F00232C76 /* BottomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8001A2E2BEDD28F00232C76 /* BottomNavigationView.swift */; };
 		A8001A312BEDD8C000232C76 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8001A302BEDD8C000232C76 /* AuthView.swift */; };
 		A8001A332BEDD96300232C76 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8001A322BEDD96300232C76 /* AuthViewModel.swift */; };
 		A8001A352BEDDE0600232C76 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8001A342BEDDE0600232C76 /* LoginView.swift */; };
 		A8001A372BEDDE2100232C76 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8001A362BEDDE2100232C76 /* SignUpView.swift */; };
+		A80F0B7A2C1514D700C1B7BA /* GrassDog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A80F0B752C1514D700C1B7BA /* GrassDog.jpg */; };
+		A80F0B7B2C1514D700C1B7BA /* Dog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A80F0B762C1514D700C1B7BA /* Dog.jpg */; };
+		A80F0B7C2C1514D700C1B7BA /* DogMovie.mov in Resources */ = {isa = PBXBuildFile; fileRef = A80F0B772C1514D700C1B7BA /* DogMovie.mov */; };
+		A80F0B7D2C1514D700C1B7BA /* avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A80F0B782C1514D700C1B7BA /* avatar.jpg */; };
+		A80F0B7E2C1514D700C1B7BA /* LongDog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A80F0B792C1514D700C1B7BA /* LongDog.jpg */; };
 		A81D03482BCB65B500463E97 /* Sha256.swift in Sources */ = {isa = PBXBuildFile; fileRef = A81D03472BCB65B500463E97 /* Sha256.swift */; };
-		A851C6732BD8071A0074E8C2 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A851C6722BD8071A0074E8C2 /* Alamofire */; };
-		A851C6752BD8071A0074E8C2 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = A851C6742BD8071A0074E8C2 /* AlamofireDynamic */; };
 		A85AACD92BB3603200B6E8C4 /* PetatetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AACD82BB3603200B6E8C4 /* PetatetApp.swift */; };
 		A85AACDB2BB3603200B6E8C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AACDA2BB3603200B6E8C4 /* ContentView.swift */; };
 		A85AACDD2BB3603400B6E8C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A85AACDC2BB3603400B6E8C4 /* Assets.xcassets */; };
@@ -51,6 +49,8 @@
 		A85AAD042BB360AD00B6E8C4 /* RealAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AAD032BB360AD00B6E8C4 /* RealAPIService.swift */; };
 		A85AAD092BB3670600B6E8C4 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AAD082BB3670600B6E8C4 /* APIServiceTests.swift */; };
 		A85AAD0C2BB3692C00B6E8C4 /* StringError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85AAD0B2BB3692C00B6E8C4 /* StringError.swift */; };
+		A8661EFA2C14F5A100E9268F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A8661EF92C14F5A100E9268F /* Alamofire */; };
+		A878E0EE2BF1AC63007ACB4F /* IsVideoURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A878E0ED2BF1AC63007ACB4F /* IsVideoURL.swift */; };
 		A89F207E2BC4635A00108B67 /* APIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89F207D2BC4635A00108B67 /* APIResponses.swift */; };
 		A8B03F552BDC659E006317B3 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B03F542BDC659E006317B3 /* Endpoints.swift */; };
 		A8DBC8AC2BE32A89008AA7E7 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DBC8AB2BE32A89008AA7E7 /* Post.swift */; };
@@ -91,29 +91,28 @@
 		A80019F82BEC673700232C76 /* Likes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Likes.swift; sourceTree = "<group>"; };
 		A80019FA2BEC67F600232C76 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		A80019FE2BEC6FDF00232C76 /* PreviewPosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPosts.swift; sourceTree = "<group>"; };
-		A8001A032BEC71DD00232C76 /* Dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Dog.jpg; path = ../../../../Dog.jpg; sourceTree = "<group>"; };
-		A8001A052BEC71E300232C76 /* LongDog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = LongDog.jpg; path = ../../../../LongDog.jpg; sourceTree = "<group>"; };
-		A8001A072BEC71E800232C76 /* GrassDog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = GrassDog.jpg; path = ../../../../GrassDog.jpg; sourceTree = "<group>"; };
-		A8001A092BEC71F400232C76 /* DogMovie.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = DogMovie.mov; path = ../../../../DogMovie.mov; sourceTree = "<group>"; };
 		A8001A0D2BEC734C00232C76 /* MediaLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaLoader.swift; sourceTree = "<group>"; };
 		A8001A102BED35A000232C76 /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		A8001A132BED36FA00232C76 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		A8001A152BED3A4700232C76 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		A8001A182BED3D1200232C76 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		A8001A1B2BED3F1600232C76 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
-		A8001A1D2BED497500232C76 /* Alamofire_CFNetworkDownload_uU6Ndv.tmp */ = {isa = PBXFileReference; lastKnownFileType = file; name = Alamofire_CFNetworkDownload_uU6Ndv.tmp; path = ../../../../Alamofire_CFNetworkDownload_uU6Ndv.tmp; sourceTree = "<group>"; };
 		A8001A1E2BED498700232C76 /* CursedVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursedVideoPlayer.swift; sourceTree = "<group>"; };
 		A8001A202BED590100232C76 /* BetterMediaLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterMediaLoader.swift; sourceTree = "<group>"; };
 		A8001A222BED661500232C76 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		A8001A242BED97C500232C76 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		A8001A262BEDB27000232C76 /* ScrollIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollIndicator.swift; sourceTree = "<group>"; };
-		A8001A282BEDB78D00232C76 /* avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = avatar.jpg; path = ../../../../avatar.jpg; sourceTree = "<group>"; };
 		A8001A2A2BEDBBB800232C76 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		A8001A2E2BEDD28F00232C76 /* BottomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomNavigationView.swift; sourceTree = "<group>"; };
 		A8001A302BEDD8C000232C76 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		A8001A322BEDD96300232C76 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		A8001A342BEDDE0600232C76 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A8001A362BEDDE2100232C76 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		A80F0B752C1514D700C1B7BA /* GrassDog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GrassDog.jpg; sourceTree = "<group>"; };
+		A80F0B762C1514D700C1B7BA /* Dog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Dog.jpg; sourceTree = "<group>"; };
+		A80F0B772C1514D700C1B7BA /* DogMovie.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = DogMovie.mov; sourceTree = "<group>"; };
+		A80F0B782C1514D700C1B7BA /* avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatar.jpg; sourceTree = "<group>"; };
+		A80F0B792C1514D700C1B7BA /* LongDog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LongDog.jpg; sourceTree = "<group>"; };
 		A81D03472BCB65B500463E97 /* Sha256.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sha256.swift; sourceTree = "<group>"; };
 		A85AACD52BB3603200B6E8C4 /* Petatet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Petatet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A85AACD82BB3603200B6E8C4 /* PetatetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetatetApp.swift; sourceTree = "<group>"; };
@@ -125,6 +124,7 @@
 		A85AAD032BB360AD00B6E8C4 /* RealAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealAPIService.swift; sourceTree = "<group>"; };
 		A85AAD082BB3670600B6E8C4 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
 		A85AAD0B2BB3692C00B6E8C4 /* StringError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringError.swift; sourceTree = "<group>"; };
+		A878E0ED2BF1AC63007ACB4F /* IsVideoURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsVideoURL.swift; sourceTree = "<group>"; };
 		A89F207D2BC4635A00108B67 /* APIResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponses.swift; sourceTree = "<group>"; };
 		A8B03F542BDC659E006317B3 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		A8DBC8AB2BE32A89008AA7E7 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -135,8 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A851C6752BD8071A0074E8C2 /* AlamofireDynamic in Frameworks */,
-				A851C6732BD8071A0074E8C2 /* Alamofire in Frameworks */,
+				A8661EFA2C14F5A100E9268F /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,24 +186,11 @@
 		A80019FD2BEC6FC300232C76 /* Preview */ = {
 			isa = PBXGroup;
 			children = (
+				A80F0B742C15146100C1B7BA /* Preview Media */,
 				A80019FE2BEC6FDF00232C76 /* PreviewPosts.swift */,
-				A8001A002BEC70DF00232C76 /* PreviewMedia */,
 				A8001A1E2BED498700232C76 /* CursedVideoPlayer.swift */,
 			);
 			path = Preview;
-			sourceTree = "<group>";
-		};
-		A8001A002BEC70DF00232C76 /* PreviewMedia */ = {
-			isa = PBXGroup;
-			children = (
-				A8001A032BEC71DD00232C76 /* Dog.jpg */,
-				A8001A052BEC71E300232C76 /* LongDog.jpg */,
-				A8001A072BEC71E800232C76 /* GrassDog.jpg */,
-				A8001A282BEDB78D00232C76 /* avatar.jpg */,
-				A8001A092BEC71F400232C76 /* DogMovie.mov */,
-				A8001A1D2BED497500232C76 /* Alamofire_CFNetworkDownload_uU6Ndv.tmp */,
-			);
-			path = PreviewMedia;
 			sourceTree = "<group>";
 		};
 		A8001A0C2BEC72FC00232C76 /* MediaLoader */ = {
@@ -271,12 +257,25 @@
 			path = BottomNavigation;
 			sourceTree = "<group>";
 		};
+		A80F0B742C15146100C1B7BA /* Preview Media */ = {
+			isa = PBXGroup;
+			children = (
+				A80F0B782C1514D700C1B7BA /* avatar.jpg */,
+				A80F0B762C1514D700C1B7BA /* Dog.jpg */,
+				A80F0B772C1514D700C1B7BA /* DogMovie.mov */,
+				A80F0B752C1514D700C1B7BA /* GrassDog.jpg */,
+				A80F0B792C1514D700C1B7BA /* LongDog.jpg */,
+			);
+			path = "Preview Media";
+			sourceTree = "<group>";
+		};
 		A85AACCC2BB3603200B6E8C4 = {
 			isa = PBXGroup;
 			children = (
 				A85AACD72BB3603200B6E8C4 /* Petatet */,
 				A85AACD62BB3603200B6E8C4 /* Products */,
 				A85AACE82BB3603500B6E8C4 /* PetatetTests */,
+				A8661EEE2C14F27B00E9268F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -339,8 +338,16 @@
 				A81D03472BCB65B500463E97 /* Sha256.swift */,
 				A80019E12BE56A9100232C76 /* Resize.swift */,
 				A8001A2A2BEDBBB800232C76 /* Color.swift */,
+				A878E0ED2BF1AC63007ACB4F /* IsVideoURL.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A8661EEE2C14F27B00E9268F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		A89F207B2BC462EC00108B67 /* Model */ = {
@@ -348,8 +355,8 @@
 			children = (
 				A89F207D2BC4635A00108B67 /* APIResponses.swift */,
 				A8001A222BED661500232C76 /* Media.swift */,
-				A8001A242BED97C500232C76 /* Cache.swift */,
 				A80019FC2BEC680200232C76 /* Post */,
+				A8001A242BED97C500232C76 /* Cache.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -382,8 +389,7 @@
 			);
 			name = Petatet;
 			packageProductDependencies = (
-				A851C6722BD8071A0074E8C2 /* Alamofire */,
-				A851C6742BD8071A0074E8C2 /* AlamofireDynamic */,
+				A8661EF92C14F5A100E9268F /* Alamofire */,
 			);
 			productName = Petatet;
 			productReference = A85AACD52BB3603200B6E8C4 /* Petatet.app */;
@@ -436,7 +442,7 @@
 			);
 			mainGroup = A85AACCC2BB3603200B6E8C4;
 			packageReferences = (
-				A851C6712BD8071A0074E8C2 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				A8661EF82C14F5A100E9268F /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = A85AACD62BB3603200B6E8C4 /* Products */;
 			projectDirPath = "";
@@ -453,13 +459,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8001A0A2BEC71F400232C76 /* DogMovie.mov in Resources */,
-				A8001A292BEDB78D00232C76 /* avatar.jpg in Resources */,
-				A8001A082BEC71E800232C76 /* GrassDog.jpg in Resources */,
-				A8001A062BEC71E300232C76 /* LongDog.jpg in Resources */,
-				A8001A042BEC71DD00232C76 /* Dog.jpg in Resources */,
+				A80F0B7B2C1514D700C1B7BA /* Dog.jpg in Resources */,
+				A80F0B7A2C1514D700C1B7BA /* GrassDog.jpg in Resources */,
+				A80F0B7D2C1514D700C1B7BA /* avatar.jpg in Resources */,
 				A85AACE02BB3603400B6E8C4 /* Preview Assets.xcassets in Resources */,
 				A85AACDD2BB3603400B6E8C4 /* Assets.xcassets in Resources */,
+				A80F0B7C2C1514D700C1B7BA /* DogMovie.mov in Resources */,
+				A80F0B7E2C1514D700C1B7BA /* LongDog.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +483,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A878E0EE2BF1AC63007ACB4F /* IsVideoURL.swift in Sources */,
 				A8001A212BED590200232C76 /* BetterMediaLoader.swift in Sources */,
 				A8001A1C2BED3F1600232C76 /* FeedViewModel.swift in Sources */,
 				A8001A232BED661500232C76 /* Media.swift in Sources */,
@@ -794,7 +801,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A851C6712BD8071A0074E8C2 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		A8661EF82C14F5A100E9268F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -805,15 +812,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A851C6722BD8071A0074E8C2 /* Alamofire */ = {
+		A8661EF92C14F5A100E9268F /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A851C6712BD8071A0074E8C2 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = A8661EF82C14F5A100E9268F /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		A851C6742BD8071A0074E8C2 /* AlamofireDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A851C6712BD8071A0074E8C2 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

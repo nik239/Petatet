@@ -36,8 +36,7 @@ struct RealAPIService: APIService {
   }
   
   func getPosts(accessToken: String,
-               limit: Int,
-               offSet: String)
+               limit: Int)
   async throws -> [Post]? {
     
     let url = URLStringFor(endpoint: .getFeed, withToken: accessToken)

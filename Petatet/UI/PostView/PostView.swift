@@ -20,7 +20,7 @@ struct PostView: View {
     VStack (alignment: .leading) {
       HStack {
         if let avatar = post.author?.avatar {
-          PhotoView(loader: viewModel.loader(for: avatar, isVideo: false))
+          PhotoView(loader: viewModel.loader(for: avatar))
             .frame(width: width * 0.1, height: width * 0.1)
             .clipShape(.circle)
             .padding(.horizontal, width * 0.02)
@@ -36,23 +36,22 @@ struct PostView: View {
         ScrollView(.horizontal, showsIndicators: false) {
           HStack(spacing: 0) {
             ForEach(urls) { url in
-              PhotoView(loader: viewModel.loader(for: url, isVideo: false))
+              PhotoView(loader: viewModel.loader(for: url))
                 .frame(width: width, height: width)
                 .clipped()
             }
           }
+          .scrollTargetLayout()
         }
         .scrollPosition(id: $scrolledID)
         .scrollTargetBehavior(.paging)
       case .photo(let url):
-        PhotoView(loader: viewModel.loader(for: url,
-                                           isVideo: false))
+        PhotoView(loader: viewModel.loader(for: url))
         .frame(width: width, height: width)
         .clipped()
         
       case .video(let url):
-        VideoView(loader: viewModel.loader(for: url,
-                                           isVideo: true))
+        VideoView(loader: viewModel.loader(for: url))
         .frame(width: width, height: width)
         .clipped()
       }
@@ -117,6 +116,14 @@ struct PostView: View {
           self.isExpanded = true
         }
         .padding(.horizontal, width * 0.02)
+      }
+    }
+    .onAppear() {
+      switch post.attachedMedia {
+      case .photos(let urls):
+        self.scrolledID = urls.first
+      default:
+        break
       }
     }
   }

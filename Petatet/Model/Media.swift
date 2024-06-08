@@ -14,9 +14,5 @@ enum Media {
   case video(AVAsset)
 }
 
-enum MediaURL {
-  case photo(URL)
-  case video(URL)
-}
 
 

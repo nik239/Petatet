@@ -19,7 +19,7 @@ struct Post: Identifiable {
   let postText: String?
   let attachedMedia: AttachedMedia
   let author: Author?
-  let likeCount: Int
+  let likeCount: Int?
   public var id: UUID
 }
 
@@ -42,14 +42,14 @@ extension Post: Decodable {
     self.postText = htmlString.stripHTML()
     
     self.author = try! container.decode(Author.self, forKey: .publisher)
-    let likes = try! container.decode(Likes.self, forKey: .reaction)
-    self.likeCount = likes.count
+    let likes = try? container.decode(Likes.self, forKey: .reaction)
+    self.likeCount = likes?.count
     
     var media = [String]()
     
     if let postFile = try? container.decode(String.self, forKey: .postFile),
        let postFileURL = URL(string: postFile) {
-      if isVideoURL(postFileURL) {
+      if postFileURL.isVideoURL() {
         self.attachedMedia = .video(postFileURL)
       } else {
         self.attachedMedia = .photo(postFileURL)
@@ -68,15 +68,6 @@ extension Post: Decodable {
     self.attachedMedia = .photos(mediaURLs)
   }
 }
-
-  func isVideoURL(_ url: URL) -> Bool {
-    switch url.pathExtension {
-    case "mov", "mp4", "avi", "mkv":
-      return true
-    default:
-      return false
-    }
-  }
 
 
 //extension Post

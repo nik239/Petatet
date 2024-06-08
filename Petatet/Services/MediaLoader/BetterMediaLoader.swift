@@ -19,7 +19,7 @@ actor BetterMediaLoader: MediaLoader {
   
   private(set) var downloadCache = Cache<URL, DownloadState>()
   
-  func file(_ url: URL, isVideo: Bool) async throws -> Media {
+  func file(_ url: URL) async throws -> Media {
     if let cached = downloadCache[url] {
       switch cached {
       case .completed(let media):
@@ -32,7 +32,7 @@ actor BetterMediaLoader: MediaLoader {
 
     let download: Task<Media , Error> = Task.detached {
       print("Download: \(url.absoluteString)")
-      return try await self.downloadFile(from: url, isVideo: isVideo)
+      return try await self.downloadFile(from: url)
     }
 
     downloadCache[url] = .inProgress(download)
@@ -47,8 +47,8 @@ actor BetterMediaLoader: MediaLoader {
     }
   }
   
-  func downloadFile(from url: URL, isVideo: Bool) async throws -> Media {
-    if !isVideo {
+  func downloadFile(from url: URL) async throws -> Media {
+    if !url.isVideoURL() {
       let data = try await URLSession.shared.data(from: url).0
       let image = UIImage(data: data)!
       return Media.photo(image)
