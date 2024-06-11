@@ -16,38 +16,49 @@ final class FeedViewModel: ObservableObject {
   let apiService: APIService
   
   @Published var allPosts: [Post]?
-  var postOrder = [UUID: Int]()
-  @Published var displayedPosts: [Post]?
   @Published var scrolledID: UUID?
   
-  var displayed: Int = 0
+  var indexForID = [UUID: Int]()
+  var loadedMediaPosts = Set<UUID>()
+  
+  var scrollIDSub: AnyCancellable?
+  
   var buffer: Int = 5
   
   init(container: DIContainer) {
     self.container = container
     self.apiService = container.services.APIService
+    makeScrollIDPublisher()
   }
   
   func loadPosts() async {
     self.allPosts = try? await apiService.getPosts(accessToken: token, limit: 20)
     if let posts = self.allPosts {
       for (index, post) in posts.enumerated() {
-        postOrder[post.id] = index
+        indexForID[post.id] = index
       }
     }
   }
   
   func makeScrollIDPublisher() {
-    $scrolledID
+    scrollIDSub = $scrolledID
+      .removeDuplicates()
       .sink { id in
-        if let id = id, let index = self.postOrder[id] {
-          
+//        print("Scroll ID updated!")
+//        print(id)
+        guard let id = id else { return }
+        guard let curr = self.indexForID[id] else { return }
+        let upcoming =
+        self.allPosts?[curr...curr+self.buffer].filter { !self.loadedMediaPosts.contains ($0.id) }
+        upcoming?.forEach {
+          self.loadMedia(post: $0)
         }
       }
   }
   
-  private func loadMedia() async {
-    
+  private func loadMedia(post: Post) {
+    // to-do: load all the media on the post into cache
+    self.loadedMediaPosts.insert(post.id)
   }
 }
 

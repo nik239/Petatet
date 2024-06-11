@@ -24,6 +24,7 @@ struct PhotoView: View {
         }
       }
       .task {
+        print("loading media!")
         guard let media = try? await loader() else {
           overlay = "camera.metering.unknown"
           return

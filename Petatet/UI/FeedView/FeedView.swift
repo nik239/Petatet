@@ -17,7 +17,7 @@ struct FeedView: View {
           PostView(post: post,
                    viewModel: PostViewModel(container: viewModel.container))
           .padding(.vertical)
-          .id(post.id)
+          //.id(post.id)
         }
       }
       .scrollTargetLayout()
