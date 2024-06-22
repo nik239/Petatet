@@ -25,6 +25,7 @@ struct VideoView: View {
       }
     }
     .task {
+      print("loading media!")
       guard let media = try? await loader() else {
         print("Couldn't load video!")
         return
@@ -34,13 +35,11 @@ struct VideoView: View {
         let item = AVPlayerItem(asset: asset)
         player = AVPlayer(playerItem: item)
         player?.isMuted = true
+        //player?.play()
         return
       default:
         return
       }
-    }
-    .onAppear {
-      player?.play()
     }
   }
 }

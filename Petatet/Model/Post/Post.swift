@@ -7,14 +7,15 @@
 
 import Foundation
 
-enum AttachedMedia {
+enum AttachedMedia: Hashable {
   case video(URL)
   case photo(URL)
   case photos([URL])
 }
 
-struct Post: Identifiable {
+struct Post: Identifiable, Hashable {
   let uid: String
+  let postID: String?
   let time: Date?
   let postText: String?
   let attachedMedia: AttachedMedia
@@ -23,9 +24,15 @@ struct Post: Identifiable {
   public var id: UUID
 }
 
+extension Post: Equatable {
+  static func == (lhs: Post, rhs: Post) -> Bool {
+    lhs.id == rhs.id
+  }
+}
+
 extension Post: Decodable {
   enum CodingKeys: String, CodingKey {
-    case user_id, time, postText, photo_album, photo_multi, postFile, publisher, reaction
+    case user_id, time, postText, photo_album, photo_multi, postFile, publisher, reaction, post_id
   }
   
   init(from decoder: Decoder) throws {
@@ -34,6 +41,8 @@ extension Post: Decodable {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     
     self.uid = try container.decode(String.self, forKey: .user_id)
+    
+    self.postID = try container.decode(String.self, forKey: .post_id)
     
     let timeStamp = try container.decode(String.self, forKey: .time)
     self.time = try Date(timeStamp)

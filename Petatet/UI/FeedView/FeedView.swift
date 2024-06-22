@@ -12,12 +12,13 @@ struct FeedView: View {
   
   var body: some View {
     ScrollView(.vertical, showsIndicators: false) {
-      VStack (alignment: .leading) {
-        ForEach(viewModel.allPosts ?? []) { post in
+      LazyVStack (alignment: .leading) {
+        ForEach(viewModel.allPosts ?? [], id: \.self) { post in
           PostView(post: post,
+                   renderTable: viewModel.renderTable,
                    viewModel: PostViewModel(container: viewModel.container))
+          .id(post.id)
           .padding(.vertical)
-          //.id(post.id)
         }
       }
       .scrollTargetLayout()

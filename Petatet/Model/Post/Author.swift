@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Author {
+struct Author: Hashable {
+  static func == (lhs: Author, rhs: Author) -> Bool {
+    lhs.uid == rhs.uid
+  }
+  
   
   let uid: String?
   let username: String?
@@ -48,7 +52,7 @@ extension Author: Decodable {
 }
 
 extension Author {
-  struct Name {
+  struct Name: Hashable {
     let first: String?
     let last: String?
   }

@@ -16,6 +16,7 @@ struct PreviewPosts {
   
   let posts: [Post] = [
     Post(uid: "1",
+         postID: "1",
          time: .now,
          postText: "This is a long dog",
          attachedMedia: .photo(LocalFiles.longDog),
@@ -23,6 +24,7 @@ struct PreviewPosts {
          likeCount: 0,
          id: UUID()),
     Post(uid: "2",
+         postID: "2",
          time: .now,
          postText: "Two dogs",
          attachedMedia: .photos([LocalFiles.dog, LocalFiles.longDog]),
@@ -30,6 +32,7 @@ struct PreviewPosts {
          likeCount: 0,
          id: UUID()),
     Post(uid: "3",
+         postID: "3",
          time: .now,
          postText: "A dog video. A video about dog. This text is long to test how line limit looks when text is long",
          attachedMedia: .video(LocalFiles.dogMovie),

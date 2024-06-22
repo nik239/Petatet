@@ -11,7 +11,9 @@ protocol APIService {
   func authenticate(username: String, password: String) async throws
   -> AuthResponse?
   
-  func getPosts(accessToken: String, limit: Int) async throws
+  func getPosts(accessToken: String,
+                limit: Int,
+                afterPostID: String?) async throws
   -> [Post]?
 }
 
@@ -24,7 +26,9 @@ struct StubAPIService: APIService {
                         timezone: "EDT")
   }
   
-  func getPosts(accessToken: String, limit: Int) async throws 
+  func getPosts(accessToken: String,
+                limit: Int,
+                afterPostID: String?) async throws
   -> [Post]? {
     return PreviewPosts().posts
   }

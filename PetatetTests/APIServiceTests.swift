@@ -20,7 +20,8 @@ final class APIServiceTests: XCTestCase {
   }
   
   func test_getFeed() async {
-    let posts = try! await apiService.getPosts(accessToken: token, limit: 3)
+    let posts = try! await apiService.getPosts(accessToken: token, limit: 10)
+    print(posts!.count)
     posts?.forEach { post in
       print(post)
     }
