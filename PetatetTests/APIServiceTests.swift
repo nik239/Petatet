@@ -20,11 +20,38 @@ final class APIServiceTests: XCTestCase {
   }
   
   func test_getFeed() async {
-    let posts = try! await apiService.getPosts(accessToken: token, limit: 10)
+    let posts = try! await apiService.getPosts(accessToken: token, limit: 10, afterPostID: nil)
     print(posts!.count)
     posts?.forEach { post in
       print(post)
     }
+  }
+  
+  func test_newPost() async {
+    try! await apiService.newPost(accessToken: token, userID: "18836", postText: "test")
+  }
+  
+  func test_newPostImageUpload() async {
+    let imageURL = Bundle.main.url(forResource: "avatar", withExtension: "jpg")!
+    let imageURL2 = Bundle.main.url(forResource: "Dog", withExtension: "jpg")!
+    let imageData = try! Data(contentsOf: imageURL)
+    let imageData2 = try! Data(contentsOf: imageURL2)
+    let images = [imageData]
+    
+    try! await apiService.newPost(accessToken: token,
+                                  userID: "18836",
+                                  postText: "test",
+                                  images: images)
+  }
+  
+  func test_newPostVideoUpload() async {
+    let videoURL = Bundle.main.url(forResource: "DogMovie", withExtension: "mov")!
+    let videoData = try! Data(contentsOf: videoURL)
+    
+    try! await apiService.newPost(accessToken: token,
+                                 userID: "18836",
+                                 postText: "test",
+                                 video: videoData)
   }
   
 //  func test_getImage() async {

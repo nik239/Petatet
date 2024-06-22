@@ -301,7 +301,7 @@
 				A80019E52BE6C00500232C76 /* UI */,
 				A89F207B2BC462EC00108B67 /* Model */,
 				A85AAD022BB3605D00B6E8C4 /* Services */,
-				A85AAD0A2BB3691200B6E8C4 /* Utilities */,
+				A85AAD0A2BB3691200B6E8C4 /* Utils */,
 				A85AACDC2BB3603400B6E8C4 /* Assets.xcassets */,
 				A80019FD2BEC6FC300232C76 /* Preview */,
 				A85AACDE2BB3603400B6E8C4 /* Preview Content */,
@@ -335,7 +335,7 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		A85AAD0A2BB3691200B6E8C4 /* Utilities */ = {
+		A85AAD0A2BB3691200B6E8C4 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				A85AAD0B2BB3692C00B6E8C4 /* StringError.swift */,
@@ -346,7 +346,7 @@
 				A84BE2342C25D89500FD48DA /* ArrayWindow.swift */,
 				A84BE2362C260BF800FD48DA /* ChildSizeReader.swift */,
 			);
-			path = Utilities;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		A8661EEE2C14F27B00E9268F /* Frameworks */ = {
