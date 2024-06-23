@@ -76,7 +76,7 @@ extension RealAPIService {
              "s": accessToken,
              "postText": postText,
              "post_color": "0",
-              "postPrivacy": 0] as [String: Any]
+             "postPrivacy": 0] as [String: Any]
     let headers: HTTPHeaders = ["Content-type": "multipart/form-data"]
     
     switch (images, video) {
@@ -147,6 +147,11 @@ extension RealAPIService {
       print(response)
     }
   }
+}
+
+//MARK: - Like Reaction
+extension RealAPIService {
+  
 }
 
 extension RealAPIService {  

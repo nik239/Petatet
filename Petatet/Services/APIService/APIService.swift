@@ -15,6 +15,14 @@ protocol APIService {
                 limit: Int,
                 afterPostID: String?) async throws
   -> [Post]?
+  
+  func newPost(accessToken: String,
+               userID: String,
+               postText: String,
+               images: [Data]?,
+               video: Data?)
+  
+  async throws
 }
 
 struct StubAPIService: APIService {
@@ -32,5 +40,13 @@ struct StubAPIService: APIService {
   -> [Post]? {
     return PreviewPosts().posts
   }
+  
+  func newPost(accessToken: String,
+               userID: String,
+               postText: String,
+               images: [Data]? = nil,
+               video: Data? = nil)
+  
+  async throws {}
 }
 

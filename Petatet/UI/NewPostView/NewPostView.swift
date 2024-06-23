@@ -10,13 +10,24 @@ import PhotosUI
 
 struct NewPostView: View {
   @ObservedObject var viewModel: NewPostViewModel
+  @State var selectedPhotos: [PhotosPickerItem] = []
+  @State var selectedVideo: PhotosPickerItem?
   @FocusState var focused: Bool
   var body: some View {
     GeometryReader { geometry in
       VStack {
-        Text(focused ? "Caption" : "New Post")
-          .bold()
-          .padding()
+        ToolbarView(focused: _focused,
+                    userInput: $viewModel.userInput,
+                    pickerState: $viewModel.pickerState,
+                    clearCaption: {viewModel.userInput = ""},
+                    clearMedia: {
+          selectedPhotos = []
+          selectedVideo = nil
+          viewModel.clearMediaSelection()
+        },
+                    uploadPost: {viewModel.uploadPost()
+          selectedPhotos = []
+        selectedVideo = nil})
         Divider()
         TextEditor(text: $viewModel.userInput)
           .foregroundColor(viewModel.userInput == viewModel.placeHolder ? .gray : .primary)
@@ -47,7 +58,7 @@ struct NewPostView: View {
           Divider()
           switch viewModel.pickerState {
           case .neutral:
-            PhotosPicker(selection: $viewModel.selectedPhotos,
+            PhotosPicker(selection: $selectedPhotos,
                          matching: .images) {
               HStack {
                 Image(systemName: "photo.on.rectangle.angled")
@@ -67,8 +78,11 @@ struct NewPostView: View {
                   .padding(.trailing)
               }
             }
+            .onChange(of: selectedPhotos) {
+              viewModel.loadImages(photoItems: selectedPhotos)
+            }
             Divider()
-            PhotosPicker(selection: $viewModel.selectedVideo,
+            PhotosPicker(selection: $selectedVideo,
                          matching: .videos) {
               HStack {
                 Image(systemName: "video.circle")
@@ -88,35 +102,24 @@ struct NewPostView: View {
                   .padding(.trailing)
               }
             }
+                         .onChange(of: selectedVideo) {
+                           viewModel.loadVideo(videoItem: selectedVideo)
+                         }
           case .presentingPhotos:
-            EmptyView()
+            ImagesView(data: viewModel.images)
           case .presentingVideo:
-            EmptyView()
+            VideoPreView(player: viewModel.player)
           }
-//          Divider()
-//          Button(action: {}) {
-//            HStack{
-//              Text("Upload")
-//                .bold()
-//                .foregroundColor(.white)
-//              Image(systemName: "pawprint.fill")
-//                .foregroundColor(.white)
-//            }
-//            .padding(10)
-//            .background(viewModel.isValid ? .orange : .gray)
-//            .cornerRadius(10)
-//            .disabled(!viewModel.isValid)
-//          }
           Spacer()
         }
         .overlay {
           if focused {
             Color.black.opacity(0.5)
+              .onTapGesture {
+                self.focused = false
+              }
           }
         }
-      }
-      .onTapGesture {
-        self.focused = false
       }
     }
   }

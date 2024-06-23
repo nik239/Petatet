@@ -23,6 +23,7 @@ enum PickerState {
 
 @MainActor
 final class NewPostViewModel: ObservableObject {
+  let token = "984370165166e874b086ace59c45a7e2173b539706b55575430a064e2379c922b0dad51688699875ad5ab36761669d6eadbaee691c4a1d22"
   let apiService: APIService
   
   @Published var viewState: NewPostViewState = .neutral
@@ -31,12 +32,12 @@ final class NewPostViewModel: ObservableObject {
   @Published var userInput: String = "Write a caption..."
   
   @Published var pickerState: PickerState = .neutral
-  @Published var selectedPhotos: [PhotosPickerItem] = []
-  @Published var selectedVideo: PhotosPickerItem? = nil
+  
   var subs = Set<AnyCancellable>()
   
   var images: [Data] = []
   var video: Data? = nil
+  var player: AVPlayer? = nil
   
   @Published var isValid: Bool = false
   
@@ -44,47 +45,147 @@ final class NewPostViewModel: ObservableObject {
     self.apiService = container.services.APIService
   }
   
-  func makeSelectedMediaPublishers() {
-    $selectedPhotos
-      .removeDuplicates()
-      .sink { photoItems in
-        guard photoItems != [] else {
+  func loadImages(photoItems: [PhotosPickerItem]) {
+    guard photoItems != [] else {
+      return
+    }
+    print("Have selected photos")
+    Task {
+      for item in photoItems {
+        let imageData = try await item.loadTransferable(type: Data.self)
+        guard let image = imageData else {
           return
         }
-        
-        for item in photoItems {
-          Task {
-            let imageData = try await item.loadTransferable(type: Data.self)
-            guard let image = imageData else {
-              return
-            }
-            self.images.append(image)
-          }
-        }
-
-        self.pickerState = .presentingPhotos
+        self.images.append(image)
       }
-      .store(in: &subs)
-    
-    $selectedVideo
-      .removeDuplicates()
-      .sink { videoItem in
-        guard let item = videoItem else {
-          return
-        }
-        
-        Task {
-          let videoData = try await item.loadTransferable(type: Data.self)
-          guard let video = videoData else {
-            return
-          }
-          self.video = video
-        }
-
-        self.pickerState = .presentingVideo
-      }
-      .store(in: &subs)
+      self.pickerState = .presentingPhotos
+    }
   }
+  
+  func loadVideo(videoItem: PhotosPickerItem?) {
+    guard let videoItem = videoItem else {
+      return
+    }
+    print("Have selected video")
+    
+    Task {
+      self.video = try await videoItem.loadTransferable(type: Data.self)
+      guard let video = video else {
+        print("Couldn't load video from photos library!")
+        return
+      }
+      let item = await self.createAVAsset(from: video)
+      self.player = AVPlayer(playerItem: item)
+      self.pickerState = .presentingVideo
+    }
+  }
+  
+  func createAVAsset(from data: Data) async -> AVPlayerItem? {
+    // Step 1: Create a temporary file URL
+    let tempDir = FileManager.default.temporaryDirectory
+    let tempFileURL =
+    tempDir
+      .appendingPathComponent(UUID().uuidString)
+      .appendingPathExtension("mov")
+    
+    do {
+      try data.write(to: tempFileURL)
+      let asset = AVAsset(url: tempFileURL)
+      _ = try! await asset.load(.tracks,
+                               .duration,
+                               .isPlayable,
+                               .isExportable,
+                               .isReadable)
+      let item = AVPlayerItem(asset: asset)
+      return item
+    } catch {
+      return nil
+    }
+  }
+  
+  func clearMediaSelection() {
+    self.images = []
+    self.video = nil
+    self.pickerState = .neutral
+  }
+  
+  func uploadPost() {
+    if self.video != nil {
+      Task {
+       try await apiService.newPost(accessToken: token,
+                                 userID: "18836",
+                                 postText: self.userInput,
+                                 images: nil,
+                                 video: self.video)
+        clearMediaSelection()
+      }
+      return
+    }
+    
+    if self.images != [] {
+      Task {
+       try await apiService.newPost(accessToken: token,
+                                 userID: "18836",
+                                 postText: self.userInput,
+                                 images: images,
+                                 video: nil)
+        clearMediaSelection()
+      }
+      return
+    }
+    
+    Task {
+      try await apiService.newPost(accessToken: token,
+                                userID: "18836",
+                                postText: self.userInput,
+                                images: nil,
+                                video: nil)
+      clearMediaSelection()
+    }
+  }
+  
+//  func makeSelectedMediaPublishers() {
+//    $selectedPhotos
+//      .removeDuplicates()
+//      .sink { photoItems in
+//        print("Have selected photos")
+//        guard photoItems != [] else {
+//          return
+//        }
+//        
+//        for item in photoItems {
+//          Task {
+//            let imageData = try await item.loadTransferable(type: Data.self)
+//            guard let image = imageData else {
+//              return
+//            }
+//            self.images.append(image)
+//          }
+//        }
+//        print("Have selected photos!")
+//        self.pickerState = .presentingPhotos
+//      }
+//      .store(in: &subs)
+    
+//    $selectedVideo
+//      .removeDuplicates()
+//      .sink { videoItem in
+//        guard let item = videoItem else {
+//          return
+//        }
+//        
+//        Task {
+//          let videoData = try await item.loadTransferable(type: Data.self)
+//          guard let video = videoData else {
+//            return
+//          }
+//          self.video = video
+//        }
+//
+//        self.pickerState = .presentingVideo
+//      }
+//      .store(in: &subs)
+//  }
 }
 
 //MARK: - UI
