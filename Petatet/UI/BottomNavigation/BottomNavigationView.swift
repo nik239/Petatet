@@ -17,10 +17,7 @@ struct BottomNavigationView: View {
               
           }
           .tag(0)
-        
-        Text("Post upload coming soon!")
-          .bold()
-          .foregroundColor(.orange)
+        NewPostView(viewModel: NewPostViewModel(container: container))
           .tabItem {
             Image(systemName: "plus.app")
           }
