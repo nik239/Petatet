@@ -23,6 +23,7 @@ final class AuthViewModel: ObservableObject {
   @Published var authState: AuthState = .unauthenticated
   @Published var flow: AuthFlow = .login
   
+  @Published var username = ""
   @Published var email = ""
   @Published var password = ""
   @Published var confirmPassword = ""
@@ -40,20 +41,35 @@ final class AuthViewModel: ObservableObject {
   func signInWithEmailPassword() {
     authState = .authenticating
     Task {
-      let response = try? await APIService.authenticate(username: email,
+      let response = try await APIService.authenticate(username: email,
                                                         password: password)
-      authState = .authenticated
-//      print(response)
-//      if response != nil {
-//        self.authState = .authenticated
-//      } else {
-//        self.authState = .unauthenticated
-//      }
+      
+      switch response {
+      case .success((let token, let uid)):
+        //save token and uid
+        self.authState = .authenticated
+      case .failure(let error):
+        self.errorMessage = error
+        authState = .unauthenticated
+      }
     }
   }
   
   func signUpWithEmailPassword() {
-    
+    authState = .authenticating
+    Task {
+      let response = try await APIService.createAccount(username: username,
+                                                        password: password,
+                                                        email: email,
+                                                        confirmPassword: confirmPassword)
+      switch response {
+      case .success:
+        self.errorMessage = "Registration successful! Please check your inbox to verify your email!"
+      case .failure(let error):
+        self.errorMessage = error
+      }
+      authState = .unauthenticated
+    }
   }
   
   private func makeIsValidPublisher() {

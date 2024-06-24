@@ -1,65 +1,12 @@
 //
-//  Networking.swift
+//  NewPost.swift
 //  Petatet
 //
-//  Created by Nikita Ivanov on 26/03/2024.
+//  Created by Nikita Ivanov on 24/06/2024.
 //
 
 import Foundation
 import Alamofire
-
-struct RealAPIService: APIService {
-  let serverKey = "3aca72d520a9dbee8ba5d0f34fd3436d"
-  
-  /// - Returns: AuthResponse
-  func authenticate(username: String,
-                    password: String)
-  async throws -> AuthResponse? {
-    
-    let url = URLStringFor(endpoint: .auth)
-    
-    let params = ["server_key": serverKey,
-                  "username": username,
-                  "password": password,
-                  "ios_n_device_id":""]
-    
-    let response = try await AF.request(url,
-                                        method: .post,
-                                        parameters: params,
-                                        encoding: URLEncoding.default,
-                                        headers: nil)
-      .serializingString().value
-    //                              .serializingDecodable(AuthResponse.self).value
-    
-    print(response)
-    return nil
-  }
-  
-  //Note: If more than 50 posts are requested, the API will only return 20.
-  func getPosts(accessToken: String,
-                limit: Int,
-                afterPostID: String?)
-  async throws -> [Post]? {
-    let url = URLStringFor(endpoint: .getFeed, withToken: accessToken)
-    let afterPostID = afterPostID ?? ""
-    let params = ["server_key": serverKey,
-                  "type": "get_news_feed",
-                  "limit": limit,
-                  "after_post_id": afterPostID] as [String : Any]
-    
-    let response = try await AF.request(url,
-                                        method: .post,
-                                        parameters: params,
-                                        encoding: URLEncoding.default,
-                                        headers: nil)
-      .serializingDecodable(GetPostsResponse.self).value
-    //      .serializingString().value
-    //
-    //    print(response)
-    //    return nil
-    return response.data
-  }
-}
 
 // MARK: - Upload new Post
 extension RealAPIService {
@@ -145,26 +92,6 @@ extension RealAPIService {
       .serializingString().value
       
       print(response)
-    }
-  }
-}
-
-//MARK: - Like Reaction
-extension RealAPIService {
-  
-}
-
-extension RealAPIService {  
-  func handleResponse<T>(_ data: Data, _ response: URLResponse,
-                         completion: () throws -> T) throws -> T {
-    
-    let statusCode = (response as? HTTPURLResponse)?.statusCode
-    
-    switch statusCode {
-    case 200:
-      return try completion()
-    case let errorCode:
-      throw "Server responded with error: \(String(describing: errorCode))"
     }
   }
 }

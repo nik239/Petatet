@@ -15,6 +15,7 @@ struct FeedView: View {
       LazyVStack (alignment: .leading) {
         ForEach(viewModel.allPosts ?? [], id: \.self) { post in
           PostView(post: post,
+                   likeCount: post.likeCount,
                    renderTable: viewModel.renderTable,
                    viewModel: PostViewModel(container: viewModel.container))
           .id(post.id)

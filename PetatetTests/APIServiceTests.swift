@@ -15,12 +15,55 @@ final class APIServiceTests: XCTestCase {
   let password = "W14LoCPP"
   let token = "984370165166e874b086ace59c45a7e2173b539706b55575430a064e2379c922b0dad51688699875ad5ab36761669d6eadbaee691c4a1d22"
   
-  func test_authenticate() async {
+  func test_authenticateSuccess() async {
     let response = try! await apiService.authenticate(username: username, password: password)
+    switch response {
+    case .success((let token, let uid)):
+      print("Access token is: \(token)")
+      print("User id is: \(uid)")
+    case .failure:
+      XCTFail()
+    }
+  }
+  
+  func test_authenticateFailure() async {
+    let response = try! await apiService.authenticate(username: "", password: password)
+    switch response {
+    case .failure(let error):
+      print("Error is: \(error)")
+    case .success:
+      XCTFail()
+    }
+  }
+  
+  func test_createAccountSuccess() async {
+    let response = try! await apiService.createAccount(username: "tester2",
+                                                       password: "TesterTester*",
+                                                       email: "testertester2@gmail.com",
+                                                       confirmPassword: "TesterTester*")
+    switch response {
+    case .success:
+      return
+    case .failure:
+      XCTFail()
+    }
+  }
+  
+  func test_createAccountFailure() async {
+    let response = try! await apiService.createAccount(username: "tester",
+                                                       password: "TesterTester*",
+                                                       email: "testertester@gmail.com",
+                                                       confirmPassword: "Tester*")
+    switch response {
+    case .success:
+      XCTFail()
+    case .failure(let error):
+      print(error)
+    }
   }
   
   func test_getFeed() async {
-    let posts = try! await apiService.getPosts(accessToken: token, limit: 10, afterPostID: nil)
+    let posts = try! await apiService.getFeed(accessToken: token, limit: 10, afterPostID: nil)
     print(posts!.count)
     posts?.forEach { post in
       print(post)

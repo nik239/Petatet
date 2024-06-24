@@ -27,6 +27,23 @@ struct SignupView: View {
       
       HStack {
         Image(systemName: "at")
+          .padding(.leading, 4)
+        TextField("Username", text: $viewModel.email)
+          .textInputAutocapitalization(.never)
+          .disableAutocorrection(true)
+          .focused($focus, equals: .email)
+          .submitLabel(.next)
+          .onSubmit {
+            self.focus = .password
+          }
+      }
+      .padding(.vertical, 6)
+      .background(Divider(), alignment: .bottom)
+      .padding(.bottom, 4)
+    
+      HStack {
+        Image(systemName: "envelope.circle")
+          .padding(.leading, 4)
         TextField("Email", text: $viewModel.email)
           .textInputAutocapitalization(.never)
           .disableAutocorrection(true)
@@ -42,6 +59,7 @@ struct SignupView: View {
       
       HStack {
         Image(systemName: "lock")
+          .padding(.leading, 4)
         SecureField("Password", text: $viewModel.password)
           .focused($focus, equals: .password)
           .submitLabel(.next)
@@ -55,6 +73,7 @@ struct SignupView: View {
       
       HStack {
         Image(systemName: "lock")
+          .padding(.leading, 4)
         SecureField("Confirm password", text: $viewModel.confirmPassword)
           .focused($focus, equals: .confirmPassword)
           .submitLabel(.go)

@@ -52,7 +52,7 @@ final class FeedViewModel: ObservableObject {
   }
   
   func loadPosts() async {
-    self.allPosts = try? await apiService.getPosts(accessToken: token,
+    self.allPosts = try? await apiService.getFeed(accessToken: token,
                                                    limit: chunkSize,
                                                    afterPostID: nil)
     indexPosts()
@@ -96,7 +96,7 @@ final class FeedViewModel: ObservableObject {
     let lastPostID = allPosts.last?.postID
     Task {
       print("Loading posts!")
-      let nextChunk = try? await apiService.getPosts(accessToken: token,
+      let nextChunk = try? await apiService.getFeed(accessToken: token,
                                                      limit: chunkSize,
                                                      afterPostID: lastPostID)
       self.allPosts = allPosts + (nextChunk ?? [])
@@ -119,15 +119,17 @@ final class FeedViewModel: ObservableObject {
     for i in allPosts.indices {
       if renderTable.renderTable[allPosts[i].id] == nil {
         renderTable.renderTable[allPosts[i].id] = RenderTable.RenderData()
+        print("Adding post to render table!")
       }
       if i >= start && i <= end {
         renderTable.renderTable[allPosts[i].id]?.isRendered = true
+        print("Marking post as rendered!")
       } else {
         renderTable.renderTable[allPosts[i].id]?.isRendered = false
+        print("Marking post as not rendered!")
       }
     }
-    
-    self.allPosts = allPosts
+    print(renderTable)
   }
   
 //  func setRenderDimensions(forPostWithID id: UUID, width: CGFloat, height: CGFloat) {

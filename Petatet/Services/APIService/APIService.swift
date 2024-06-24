@@ -9,9 +9,9 @@ import Foundation
 
 protocol APIService {
   func authenticate(username: String, password: String) async throws
-  -> AuthResponse?
+  -> AuthResponse
   
-  func getPosts(accessToken: String,
+  func getFeed(accessToken: String,
                 limit: Int,
                 afterPostID: String?) async throws
   -> [Post]?
@@ -23,18 +23,30 @@ protocol APIService {
                video: Data?)
   
   async throws
+  
+  func likePost(accessToken: String,
+                postId: String) async throws
+  
+  func createAccount(username: String,
+                     password: String,
+                     email: String,
+                     confirmPassword: String)
+  async throws -> CreateAccountResponse
 }
 
 struct StubAPIService: APIService {
-  func authenticate(username: String, password: String) async throws 
-  -> AuthResponse? {
-    return AuthResponse(api_status: 200,
-                        access_token: "token",
-                        user_id: "1",
-                        timezone: "EDT")
+  func createAccount(username: String, password: String, email: String, confirmPassword: String) async throws -> CreateAccountResponse {
+    return CreateAccountResponse.success
   }
   
-  func getPosts(accessToken: String,
+  func likePost(accessToken: String, postId: String) async throws {}
+  
+  func authenticate(username: String, password: String) async throws 
+  -> AuthResponse {
+    return AuthResponse.success(("token", "uid"))
+  }
+  
+  func getFeed(accessToken: String,
                 limit: Int,
                 afterPostID: String?) async throws
   -> [Post]? {
