@@ -11,9 +11,9 @@ struct ContentView: View {
   let container: DIContainer
   var body: some View {
     VStack {
-      AuthView(viewModel: AuthViewModel(container: container)) {
+//      AuthView(viewModel: AuthViewModel(container: container)) {
         BottomNavigationView(container: container)
-      }
+//      }
     }
   }
 }

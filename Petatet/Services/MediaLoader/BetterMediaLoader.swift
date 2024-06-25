@@ -31,7 +31,7 @@ actor BetterMediaLoader: MediaLoader {
     }
 
     let download: Task<Media , Error> = Task.detached {
-      print("Download: \(url.absoluteString)")
+      //print("Download: \(url.absoluteString)")
       return try await self.downloadFile(from: url)
     }
 

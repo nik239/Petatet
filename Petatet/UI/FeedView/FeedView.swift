@@ -9,25 +9,20 @@ import SwiftUI
 
 struct FeedView: View {
   @ObservedObject var viewModel: FeedViewModel
-  
   var body: some View {
     ScrollView(.vertical, showsIndicators: false) {
       LazyVStack (alignment: .leading) {
-        ForEach(viewModel.allPosts ?? [], id: \.self) { post in
+        ForEach(viewModel.allPosts ?? []) { post in
           PostView(post: post,
-                   likeCount: post.likeCount,
-                   renderTable: viewModel.renderTable,
-                   viewModel: PostViewModel(container: viewModel.container))
-          .id(post.id)
+                   loader: self.viewModel.loader(),
+                   likePost: viewModel.likePost(postID: post.postID ?? ""))
+                   
           .padding(.vertical)
         }
       }
       .scrollTargetLayout()
     }
     .scrollPosition(id: $viewModel.scrolledID)
-    .task {
-      await viewModel.loadPosts()
-    }
   }
 }
 

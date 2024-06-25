@@ -17,25 +17,26 @@ struct VideoView: View {
     VStack {
       if player != nil {
         VideoPlayer(player: player)
-//          .onTapGesture {
-//            print("\(player!.status)")
-//          }
+          .onTapGesture {
+            print("\(player!.status)")
+          }
       } else {
         EmptyView()
       }
     }
     .task {
-      print("loading media!")
+      //print("loading media!")
       guard let media = try? await loader() else {
         print("Couldn't load video!")
         return
       }
       switch media {
       case Media.video(let asset):
+        print("balls!")
         let item = AVPlayerItem(asset: asset)
         player = AVPlayer(playerItem: item)
         player?.isMuted = true
-        //player?.play()
+        player?.play()
         return
       default:
         return

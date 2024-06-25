@@ -9,11 +9,11 @@ import SwiftUI
 
 struct PostBottomBar: View {
   let width: CGFloat
-  let attachedMedia: AttachedMedia
+  @State var attachedMedia: AttachedMedia
   @Binding var isLiked: Bool
   @Binding var likeCount: Int
   @Binding var scrolledID: URL?
-  let likeAction: () -> ()
+  let likeAction: () async throws -> ()
   
   var body: some View {
     ZStack {
@@ -36,7 +36,9 @@ struct PostBottomBar: View {
             .padding(.leading, width * 0.02)
             .onTapGesture {
               self.isLiked.toggle()
-              likeAction()
+              Task {
+                try await likeAction()
+              }
               likeCount -= 1
             }
         } else {
@@ -48,7 +50,9 @@ struct PostBottomBar: View {
             .padding(.leading, width * 0.02)
             .onTapGesture {
               self.isLiked.toggle()
-              likeAction()
+              Task {
+                try await likeAction()
+              }
               likeCount += 1
             }
         }

@@ -7,19 +7,12 @@
 
 import Foundation
 
-class CacheDelegate: NSObject, NSCacheDelegate {
-    func cache(_ cache: NSCache<AnyObject, AnyObject>, willEvictObject obj: Any) {
-        print("Cache is evicting object: \(obj)")
-    }
-}
-
 final class Cache<Key: Hashable, Value> {
   
   private let wrapped = NSCache<WrappedKey, Entry>()
-  private let delegate = CacheDelegate()
   
   init() {
-    self.wrapped.delegate = delegate
+    wrapped.countLimit = 20
   }
   
   func insert(_ value: Value, forKey key: Key) {
