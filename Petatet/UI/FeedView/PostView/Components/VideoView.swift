@@ -32,7 +32,6 @@ struct VideoView: View {
       }
       switch media {
       case Media.video(let asset):
-        print("balls!")
         let item = AVPlayerItem(asset: asset)
         player = AVPlayer(playerItem: item)
         player?.isMuted = true

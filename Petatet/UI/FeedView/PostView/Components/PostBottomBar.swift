@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PostBottomBar: View {
   let width: CGFloat
-  @State var attachedMedia: AttachedMedia
+  var attachedMedia: AttachedMedia
   @Binding var isLiked: Bool
   @Binding var likeCount: Int
   @Binding var scrolledID: URL?

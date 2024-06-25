@@ -37,7 +37,7 @@ struct PostView: View {
       switch post.attachedMedia {
       case .photos(let urls):
         ScrollView(.horizontal, showsIndicators: false) {
-          HStack(spacing: 0) {
+          LazyHStack(spacing: 0) {
             ForEach(urls) { url in
               PhotoView(loader: {try await loader(url)})
                 .frame(width: width, height: width)
