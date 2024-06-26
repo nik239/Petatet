@@ -14,8 +14,8 @@ struct FeedView: View {
       LazyVStack (alignment: .leading) {
         ForEach(viewModel.allPosts ?? []) { post in
           PostView(post: post,
-                   loader: self.viewModel.loader(),
-                   likePost: viewModel.likePost(postID: post.postID ?? ""))
+                   loader: self.viewModel.mediaLoaderClosure(),
+                   likePost: viewModel.likePostClosure(postID: post.postID ?? ""))
                    
           .padding(.vertical)
         }

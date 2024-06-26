@@ -14,8 +14,8 @@ struct AppEnvironment {
 extension AppEnvironment {
   static func bootstrap() -> AppEnvironment {
     return AppEnvironment(container:
-           DIContainer(services:
-           DIContainer.Services(APIService: RealAPIService(),
+           DIContainer(appState: AppState(),
+                       services: DIContainer.Services(APIService: RealAPIService(),
                                 MediaLoader: BetterMediaLoader())))
   }
 }

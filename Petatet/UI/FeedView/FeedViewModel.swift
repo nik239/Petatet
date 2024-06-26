@@ -10,29 +10,26 @@ import Combine
 
 @MainActor 
 final class FeedViewModel: ObservableObject {
-  let token = "984370165166e874b086ace59c45a7e2173b539706b55575430a064e2379c922b0dad51688699875ad5ab36761669d6eadbaee691c4a1d22"
-  
-  let container: DIContainer
+  let appState: AppState
   let apiService: APIService
   let mediaLoader: MediaLoader
   
-  @Published var scrolledID: UUID?
   @Published var allPosts: [Post]?
-  
+  @Published var scrolledID: UUID?
   var indexForID = [UUID: Int]()
-  
-  var scrollIDSub: AnyCancellable?
   
   let loadBuffer: Int = 15
   let chunkSize: Int = 15
   
+  var scrollIDSub: AnyCancellable?
+  
   init(container: DIContainer) {
-    self.container = container
+    self.appState = container.appState
     self.apiService = container.services.APIService
     self.mediaLoader = container.services.MediaLoader
     makeScrollIDPublisher()
     Task {
-      self.allPosts = try? await apiService.getFeed(accessToken: token,
+      self.allPosts = try? await apiService.getFeed(accessToken: appState.token,
                                                     limit: chunkSize,
                                                     afterPostID: nil)
       indexPosts()
@@ -60,7 +57,7 @@ final class FeedViewModel: ObservableObject {
     let lastPostID = allPosts.last?.postID
     Task {
       print("Loading posts!")
-      let nextChunk = try? await apiService.getFeed(accessToken: token,
+      let nextChunk = try? await apiService.getFeed(accessToken: appState.token,
                                                      limit: chunkSize,
                                                      afterPostID: lastPostID)
       self.allPosts = allPosts + (nextChunk ?? [])
@@ -79,13 +76,13 @@ final class FeedViewModel: ObservableObject {
 
 //MARK: - PostView Closure Builders
 extension FeedViewModel {
-  func loader()
+  func mediaLoaderClosure()
   -> (URL) async throws -> Media {
     return { try await self.mediaLoader.file($0) }
   }
   
-  func likePost(postID: String)
+  func likePostClosure(postID: String)
   -> () async throws -> () {
-    return { try await self.apiService.likePost(accessToken: self.token, postId: postID) }
+    return { try await self.apiService.likePost(accessToken: self.appState.token, postId: postID) }
   }
 }

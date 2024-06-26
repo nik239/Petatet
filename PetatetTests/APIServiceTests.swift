@@ -70,8 +70,28 @@ final class APIServiceTests: XCTestCase {
     }
   }
   
+  func test_getAnimals() async {
+    let posts = try? await apiService.getAnimalsForAdoption(accessToken: token,
+                                                            limit: 10,
+                                                            afterPostID: nil,
+                                                            getCats: true)
+//    print(posts!.count)
+//    posts?.forEach { post in
+//      print(post)
+//    }
+  }
+  
+  func test_getUserPosts() async {
+    let posts = try? await apiService.getUserPosts(accessToken: token,
+                                                            limit: 10,
+                                                            afterPostID: nil,
+                                                            uid: "18836")
+  }
+  
   func test_newPost() async {
-    try! await apiService.newPost(accessToken: token, userID: "18836", postText: "test")
+    try! await apiService.newPost(accessToken: token,
+                                  userID: "18836",
+                                  postText: "test3")
   }
   
   func test_newPostImageUpload() async {

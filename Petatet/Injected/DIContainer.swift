@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct DIContainer {
+  let appState: AppState
   let services: Services
   
   struct Services {
@@ -20,8 +21,9 @@ struct DIContainer {
             MediaLoader: StubMediaLoader())
     }
   }
-  
+  #if DEBUG
   static var preview: Self {
-    .init(services: .stub)
+    .init(appState: AppState.preview, services: .stub)
   }
+  #endif
 }

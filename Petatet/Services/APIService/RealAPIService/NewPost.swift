@@ -18,12 +18,13 @@ extension RealAPIService {
   
   async throws {
     let url = URLStringFor(endpoint: .newPost, withToken: accessToken)
-    let params = ["server_key": serverKey,
+    var params = ["server_key": serverKey,
              "user_id": userID,
              "s": accessToken,
              "postText": postText,
              "post_color": "0",
              "postPrivacy": 0] as [String: Any]
+    
     let headers: HTTPHeaders = ["Content-type": "multipart/form-data"]
     
     switch (images, video) {

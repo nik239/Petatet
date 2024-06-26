@@ -11,31 +11,57 @@ protocol APIService {
   func authenticate(username: String, password: String) async throws
   -> AuthResponse
   
+  func createAccount(username: String,
+                     password: String,
+                     email: String,
+                     confirmPassword: String)
+  async throws -> CreateAccountResponse
+  
   func getFeed(accessToken: String,
                 limit: Int,
                 afterPostID: String?) async throws
   -> [Post]?
+  
+  func getAnimalsForAdoption(accessToken: String,
+                             limit: Int,
+                             afterPostID: String?,
+                             getCats: Bool)
+  async throws -> [Post]?
+  
+  func getUserPosts(accessToken: String,
+                    limit: Int,
+                    afterPostID: String?,
+                    uid: String)
+  async throws -> [Post]?
   
   func newPost(accessToken: String,
                userID: String,
                postText: String,
                images: [Data]?,
                video: Data?)
-  
   async throws
   
   func likePost(accessToken: String,
-                postId: String) async throws
+                postId: String)
+  async throws
+  
+}
+
+struct StubAPIService: APIService {
+  func getAnimalsForAdoption(accessToken: String, limit: Int, afterPostID: String?, getCats: Bool)
+  async throws -> [Post]? {
+    return PreviewPosts().posts
+  }
+  
+  func getUserPosts(accessToken: String, limit: Int, afterPostID: String?, uid: String)
+  async throws -> [Post]? {
+    return PreviewPosts().posts
+  }
   
   func createAccount(username: String,
                      password: String,
                      email: String,
-                     confirmPassword: String)
-  async throws -> CreateAccountResponse
-}
-
-struct StubAPIService: APIService {
-  func createAccount(username: String, password: String, email: String, confirmPassword: String) async throws -> CreateAccountResponse {
+                     confirmPassword: String) async throws -> CreateAccountResponse {
     return CreateAccountResponse.success
   }
   

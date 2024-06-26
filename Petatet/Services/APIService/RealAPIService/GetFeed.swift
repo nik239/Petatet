@@ -32,6 +32,58 @@ extension RealAPIService {
     //    return nil
     return response.data
   }
+  
+  func getAnimalsForAdoption(accessToken: String,
+                             limit: Int,
+                             afterPostID: String?,
+                             getCats: Bool)
+  async throws -> [Post]? {
+    let url = URLStringFor(endpoint: .getFeed, withToken: accessToken)
+    let afterPostID = afterPostID ?? ""
+    let params = ["server_key": serverKey,
+                  "type": "hashtag",
+                  "limit": limit,
+                  "hash": "CatForAdoption",
+                  "after_post_id": afterPostID] as [String : Any]
+    
+    let response = try await AF.request(url,
+                                        method: .post,
+                                        parameters: params,
+                                        encoding: URLEncoding.default,
+                                        headers: nil)
+      .serializingDecodable(GetFeedResponse.self).value
+//          .serializingString().value
+//    
+//        print(response)
+//        return nil
+    return response.data
+  }
+  
+  func getUserPosts(accessToken: String,
+                    limit: Int,
+                    afterPostID: String?,
+                    uid: String)
+  async throws -> [Post]? {
+    let url = URLStringFor(endpoint: .getFeed, withToken: accessToken)
+    let afterPostID = afterPostID ?? ""
+    let params = ["server_key": serverKey,
+                  "type": "get_user_posts",
+                  "limit": limit,
+                  "id": uid,
+                  "after_post_id": afterPostID] as [String : Any]
+    
+    let response = try await AF.request(url,
+                                        method: .post,
+                                        parameters: params,
+                                        encoding: URLEncoding.default,
+                                        headers: nil)
+      .serializingDecodable(GetFeedResponse.self).value
+//          .serializingString().value
+//    
+//        print(response)
+//        return nil
+    return response.data
+  }
 }
 
 struct GetFeedResponse: Decodable {

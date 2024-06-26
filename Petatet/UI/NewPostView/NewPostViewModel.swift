@@ -23,7 +23,7 @@ enum PickerState {
 
 @MainActor
 final class NewPostViewModel: ObservableObject {
-  let token = "984370165166e874b086ace59c45a7e2173b539706b55575430a064e2379c922b0dad51688699875ad5ab36761669d6eadbaee691c4a1d22"
+  let appState: AppState
   let apiService: APIService
   
   @Published var viewState: NewPostViewState = .neutral
@@ -43,6 +43,7 @@ final class NewPostViewModel: ObservableObject {
   
   init(container: DIContainer) {
     self.apiService = container.services.APIService
+    self.appState = container.appState
   }
   
   func loadImages(photoItems: [PhotosPickerItem]) {
@@ -112,11 +113,11 @@ final class NewPostViewModel: ObservableObject {
   func uploadPost() {
     if self.video != nil {
       Task {
-       try await apiService.newPost(accessToken: token,
-                                 userID: "18836",
-                                 postText: self.userInput,
-                                 images: nil,
-                                 video: self.video)
+        try await apiService.newPost(accessToken: appState.token,
+                                    userID: appState.uid,
+                                     postText: self.userInput,
+                                     images: nil,
+                                     video: self.video)
         clearMediaSelection()
       }
       return
@@ -124,22 +125,22 @@ final class NewPostViewModel: ObservableObject {
     
     if self.images != [] {
       Task {
-       try await apiService.newPost(accessToken: token,
-                                 userID: "18836",
-                                 postText: self.userInput,
-                                 images: images,
-                                 video: nil)
+        try await apiService.newPost(accessToken: appState.token,
+                                     userID: appState.uid,
+                                     postText: self.userInput,
+                                     images: images,
+                                     video: nil)
         clearMediaSelection()
       }
       return
     }
     
     Task {
-      try await apiService.newPost(accessToken: token,
-                                userID: "18836",
-                                postText: self.userInput,
-                                images: nil,
-                                video: nil)
+      try await apiService.newPost(accessToken: appState.token,
+                                   userID: appState.uid,
+                                   postText: self.userInput,
+                                   images: nil,
+                                   video: nil)
       clearMediaSelection()
     }
   }

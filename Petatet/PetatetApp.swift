@@ -9,7 +9,8 @@ import SwiftUI
 
 @main
 struct PetatetApp: App {
-  let container = DIContainer(services: DIContainer.Services(APIService: RealAPIService(),
+  let container = DIContainer(appState: AppState(),
+                              services: DIContainer.Services(APIService: RealAPIService(),
                                                              MediaLoader: BetterMediaLoader()))
     var body: some Scene {
         WindowGroup {

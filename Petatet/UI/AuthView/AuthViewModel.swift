@@ -12,14 +12,11 @@ enum AuthFlow {
   case signup
 }
 
-enum AuthState {
-  case unauthenticated
-  case authenticating
-  case authenticated
-}
-
 @MainActor 
 final class AuthViewModel: ObservableObject {
+  private let appState: AppState
+  private let APIService: APIService
+  
   @Published var authState: AuthState = .unauthenticated
   @Published var flow: AuthFlow = .login
   
@@ -31,11 +28,13 @@ final class AuthViewModel: ObservableObject {
   @Published var isValid = false
   @Published var errorMessage = ""
   
-  private let APIService: APIService
   
   init(container: DIContainer) {
+    self.appState = container.appState
     self.APIService = container.services.APIService
     makeIsValidPublisher()
+    appState.$authState
+      .assign(to: &$authState)
   }
   
   func signInWithEmailPassword() {
@@ -46,11 +45,9 @@ final class AuthViewModel: ObservableObject {
       
       switch response {
       case .success((let token, let uid)):
-        //save token and uid
-        self.authState = .authenticated
+        appState.logIn(token: token, uid: uid)
       case .failure(let error):
         self.errorMessage = error
-        authState = .unauthenticated
       }
     }
   }
