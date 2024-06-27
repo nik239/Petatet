@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Author: Hashable {
-  static func == (lhs: Author, rhs: Author) -> Bool {
+struct Profile: Hashable {
+  static func == (lhs: Profile, rhs: Profile) -> Bool {
     lhs.uid == rhs.uid
   }
   
@@ -31,7 +31,7 @@ struct Author: Hashable {
   }
 }
 
-extension Author: Decodable {
+extension Profile: Decodable {
   enum CodingKeys: String, CodingKey {
     case user_id, username, first_name, last_name, avatar
   }
@@ -51,11 +51,20 @@ extension Author: Decodable {
   }
 }
 
-extension Author {
+extension Profile {
   struct Name: Hashable {
     let first: String?
     let last: String?
   }
+}
+
+//MARK: -Preview
+extension Profile {
+  static let preview = Profile(uid: "1",
+                               username: "ace" ,
+                               name: Profile.Name(first: "Ace",
+                                                  last: "Ventura"),
+                               avatar: LocalFiles.avatar)
 }
 
 

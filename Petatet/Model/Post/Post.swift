@@ -19,7 +19,7 @@ struct Post: Identifiable, Hashable {
   let time: Date?
   let postText: String?
   let attachedMedia: AttachedMedia
-  let author: Author?
+  let author: Profile?
   var likeCount: Int
   public var id: UUID
 }
@@ -50,7 +50,7 @@ extension Post: Decodable {
     let htmlString = try container.decode(String.self, forKey: .postText)
     self.postText = htmlString.stripHTML()
     
-    self.author = try! container.decode(Author.self, forKey: .publisher)
+    self.author = try! container.decode(Profile.self, forKey: .publisher)
     let likes = try? container.decode(Likes.self, forKey: .reaction)
     self.likeCount = likes?.count ?? 0
     

@@ -12,7 +12,7 @@ enum FeedType {
   case main
   case catsForAdoption
   case dogsForAdoption
-  case profile
+  case profile(String)
 }
 
 @MainActor
@@ -143,12 +143,12 @@ extension FeedViewModel {
                                                    afterPostID: $0,
                                                    getCats: false)
       }
-    case .profile:
+    case .profile(let uid):
       return {
         try await apiService.getUserPosts(accessToken: appState.token,
                                           limit: chunkSize,
                                           afterPostID: $0,
-                                          uid: appState.uid)
+                                          uid: uid)
       }
     }
   }

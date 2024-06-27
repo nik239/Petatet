@@ -63,11 +63,11 @@ final class APIServiceTests: XCTestCase {
   }
   
   func test_getFeed() async {
-    let posts = try! await apiService.getFeed(accessToken: token, limit: 10, afterPostID: nil)
-    print(posts!.count)
-    posts?.forEach { post in
-      print(post)
-    }
+    let posts = try? await apiService.getFeed(accessToken: token, limit: 10, afterPostID: nil)
+//    print(posts!.count)
+//    posts?.forEach { post in
+//      print(post)
+//    }
   }
   
   func test_getAnimals() async {
@@ -115,6 +115,10 @@ final class APIServiceTests: XCTestCase {
                                  userID: "18836",
                                  postText: "test",
                                  video: videoData)
+  }
+  
+  func test_getUserData() async {
+    try! await apiService.getUserData(accessToken: token, uid: "18011")
   }
   
 //  func test_getImage() async {

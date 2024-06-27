@@ -26,10 +26,10 @@ extension RealAPIService {
                                         encoding: URLEncoding.default,
                                         headers: nil)
       .serializingDecodable(GetFeedResponse.self).value
-    //      .serializingString().value
-    //
-    //    print(response)
-    //    return nil
+//          .serializingString().value
+//    
+//        print(response)
+//        return nil
     return response.data
   }
   

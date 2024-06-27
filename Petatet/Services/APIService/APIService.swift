@@ -45,9 +45,20 @@ protocol APIService {
                 postId: String)
   async throws
   
+  func getUserData(accessToken: String,
+                   uid: String)
+  async throws -> UserDataResponse
+  
 }
 
 struct StubAPIService: APIService {
+  func getUserData(accessToken: String, uid: String) async throws -> UserDataResponse {
+    .success(Profile(uid: "guest",
+                     username: "Ace",
+                     name: Profile.Name(first: "Ace",last: "Ventura"),
+                     avatar: LocalFiles.avatar))
+  }
+  
   func getAnimalsForAdoption(accessToken: String, limit: Int, afterPostID: String?, getCats: Bool)
   async throws -> [Post]? {
     return PreviewPosts().posts
