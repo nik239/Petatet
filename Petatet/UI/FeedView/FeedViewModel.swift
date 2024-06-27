@@ -8,11 +8,21 @@
 import Foundation
 import Combine
 
-@MainActor 
+enum FeedType {
+  case main
+  case catsForAdoption
+  case dogsForAdoption
+  case profile
+}
+
+@MainActor
 final class FeedViewModel: ObservableObject {
   let appState: AppState
   let apiService: APIService
   let mediaLoader: MediaLoader
+  
+  let feedType: FeedType
+  let postLoader: (String?) async throws -> [Post]?
   
   @Published var allPosts: [Post]?
   @Published var scrolledID: UUID?
@@ -22,28 +32,49 @@ final class FeedViewModel: ObservableObject {
   let chunkSize: Int = 15
   
   var scrollIDSub: AnyCancellable?
+  var appStateSub: AnyCancellable?
   
-  init(container: DIContainer) {
+  init(container: DIContainer, type: FeedType) {
     self.appState = container.appState
     self.apiService = container.services.APIService
     self.mediaLoader = container.services.MediaLoader
-    makeScrollIDPublisher()
-    Task {
-      self.allPosts = try? await apiService.getFeed(accessToken: appState.token,
-                                                    limit: chunkSize,
-                                                    afterPostID: nil)
-      indexPosts()
-    }
+    self.feedType = type
+    self.postLoader = FeedViewModel.getPostLoader(for: type,
+                                                  appState: appState,
+                                                  apiService: apiService,
+                                                  chunkSize: chunkSize)
+    //makeScrollIDPublisher()
+    fetchPosts()
   }
   
-  func makeScrollIDPublisher() {
-    scrollIDSub = $scrolledID
+//  func makeScrollIDPublisher() {
+//    scrollIDSub = $scrolledID
+//      .removeDuplicates()
+//      .sink { id in
+//        guard let id = id else { return }
+//        guard let curr = self.indexForID[id] else { return }
+//        self.updateLoaded(index: curr)
+//      }
+//  }
+  
+  func updateCurr(id: UUID) {
+    guard let curr = self.indexForID[id] else { return }
+    self.updateLoaded(index: curr)
+  }
+  
+  func makeAuthSub() {
+    appStateSub = appState.$authState
       .removeDuplicates()
-      .sink { id in
-        guard let id = id else { return }
-        guard let curr = self.indexForID[id] else { return }
-        self.updateLoaded(index: curr)
+      .sink { authState in
+        self.fetchPosts()
       }
+  }
+  
+  func fetchPosts() {
+    Task {
+      self.allPosts = try? await postLoader(nil)
+      indexPosts()
+    }
   }
   
   func updateLoaded(index: Int) {
@@ -57,9 +88,7 @@ final class FeedViewModel: ObservableObject {
     let lastPostID = allPosts.last?.postID
     Task {
       print("Loading posts!")
-      let nextChunk = try? await apiService.getFeed(accessToken: appState.token,
-                                                     limit: chunkSize,
-                                                     afterPostID: lastPostID)
+      let nextChunk = try? await postLoader(lastPostID)
       self.allPosts = allPosts + (nextChunk ?? [])
       indexPosts()
     }
@@ -86,3 +115,42 @@ extension FeedViewModel {
     return { try await self.apiService.likePost(accessToken: self.appState.token, postId: postID) }
   }
 }
+
+//MARK: - postLoader constructor
+extension FeedViewModel {
+  static func getPostLoader(for type: FeedType,
+                            appState: AppState,
+                            apiService: APIService,
+                            chunkSize: Int) -> (String?) async throws -> [Post]? {
+    switch type {
+    case .main:
+      return {
+        try await apiService.getFeed(accessToken: appState.token,
+                                     limit: chunkSize,
+                                     afterPostID: $0)
+      }
+    case .catsForAdoption:
+      return {
+        try await apiService.getAnimalsForAdoption(accessToken: appState.token,
+                                                   limit: chunkSize,
+                                                   afterPostID: $0,
+                                                   getCats: true)
+      }
+    case .dogsForAdoption:
+      return {
+        try await apiService.getAnimalsForAdoption(accessToken: appState.token,
+                                                   limit: chunkSize,
+                                                   afterPostID: $0,
+                                                   getCats: false)
+      }
+    case .profile:
+      return {
+        try await apiService.getUserPosts(accessToken: appState.token,
+                                          limit: chunkSize,
+                                          afterPostID: $0,
+                                          uid: appState.uid)
+      }
+    }
+  }
+}
+

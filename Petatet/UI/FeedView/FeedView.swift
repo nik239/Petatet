@@ -14,18 +14,21 @@ struct FeedView: View {
       LazyVStack (alignment: .leading) {
         ForEach(viewModel.allPosts ?? []) { post in
           PostView(post: post,
+                   type: viewModel.feedType,
                    loader: self.viewModel.mediaLoaderClosure(),
                    likePost: viewModel.likePostClosure(postID: post.postID ?? ""))
-                   
+          .onAppear() {
+            viewModel.updateCurr(id: post.id)
+          }
           .padding(.vertical)
         }
       }
-      .scrollTargetLayout()
+      //.scrollTargetLayout()
     }
-    .scrollPosition(id: $viewModel.scrolledID)
+    //.scrollPosition(id: $viewModel.scrolledID)
   }
 }
 
 #Preview {
-  FeedView(viewModel: FeedViewModel(container: .preview))
+  FeedView(viewModel: FeedViewModel(container: .preview, type: .main))
 }

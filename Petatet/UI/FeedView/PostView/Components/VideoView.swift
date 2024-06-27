@@ -17,9 +17,6 @@ struct VideoView: View {
     VStack {
       if player != nil {
         VideoPlayer(player: player)
-          .onTapGesture {
-            print("\(player!.status)")
-          }
       } else {
         EmptyView()
       }

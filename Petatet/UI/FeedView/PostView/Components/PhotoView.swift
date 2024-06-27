@@ -10,19 +10,20 @@ import UIKit
 
 struct PhotoView: View {
   let loader: () async throws -> Media
-  @State var image = UIImage()
+  @StateObject var viewModel = PhotoView.Model()
+  //@State var image = UIImage()
   @State var overlay: String = ""
   
   var body: some View {
     VStack {
-      Image(uiImage: image)
+      Image(uiImage: viewModel.image)
         .resizable()
         .aspectRatio(contentMode: .fill)
-        .overlay {
-          if !overlay.isEmpty {
-            Image(systemName: overlay)
-          }
-        }
+//        .overlay {
+//          if !overlay.isEmpty {
+//            Image(systemName: overlay)
+//          }
+//        }
     }
     .task {
       guard let media = try? await loader() else {
@@ -31,7 +32,7 @@ struct PhotoView: View {
       }
       switch media {
       case Media.photo(let image):
-        self.image = image
+        viewModel.image = image
       default:
         print("default")
         overlay = "camera.metering.unknown"
@@ -41,7 +42,13 @@ struct PhotoView: View {
   }
 }
 
-#Preview {
-  return PhotoView(loader: {
-    StubMediaLoader().file(LocalFiles.dog)})
+extension PhotoView {
+  class Model: ObservableObject {
+    @Published var image = UIImage()
+  }
 }
+
+//#Preview {
+//  return PhotoView(loader: {
+//    StubMediaLoader().file(LocalFiles.dog)})
+//}

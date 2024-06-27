@@ -40,10 +40,11 @@ extension RealAPIService {
   async throws -> [Post]? {
     let url = URLStringFor(endpoint: .getFeed, withToken: accessToken)
     let afterPostID = afterPostID ?? ""
+    let hashtag = getCats ? "CatForAdoption" : "DogForAdoption"
     let params = ["server_key": serverKey,
                   "type": "hashtag",
                   "limit": limit,
-                  "hash": "CatForAdoption",
+                  "hash": hashtag,
                   "after_post_id": afterPostID] as [String : Any]
     
     let response = try await AF.request(url,

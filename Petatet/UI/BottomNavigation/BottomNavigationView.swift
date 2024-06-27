@@ -11,21 +11,19 @@ struct BottomNavigationView: View {
   let container: DIContainer
     var body: some View {
       TabView {
-        FeedView(viewModel: FeedViewModel(container: container))
+        FeedView(viewModel: FeedViewModel(container: container, type: .main))
           .tabItem {
             Image(systemName: "house")
-              
           }
           .tag(0)
+        
         NewPostView(viewModel: NewPostViewModel(container: container))
           .tabItem {
             Image(systemName: "plus.app")
           }
           .tag(1)
         
-        Text("Animals for adoption coming soon!")
-          .bold()
-          .foregroundColor(.orange)
+        ForAdoptionView(container: container)
           .tabItem {
             Image(systemName: "pawprint.fill")
           }

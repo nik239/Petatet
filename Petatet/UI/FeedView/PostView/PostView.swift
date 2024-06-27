@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PostView: View {
   @State var post: Post
+  let type: FeedType
   let loader: (URL) async throws -> Media
   let likePost: () async throws -> ()
 
@@ -36,18 +37,18 @@ struct PostView: View {
       
       switch post.attachedMedia {
       case .photos(let urls):
-        ScrollView(.horizontal, showsIndicators: false) {
-          LazyHStack(spacing: 0) {
-            ForEach(urls) { url in
-              PhotoView(loader: {try await loader(url)})
-                .frame(width: width, height: width)
-                .clipped()
+          ScrollView(.horizontal, showsIndicators: false) {
+            LazyHStack(spacing: 0) {
+              ForEach(urls) { url in
+                PhotoView(loader: {try await loader(url)})
+                  .frame(width: width, height: width)
+                  .clipped()
+              }
             }
+            .scrollTargetLayout()
           }
-          .scrollTargetLayout()
-        }
-        .scrollPosition(id: $scrolledID)
-        .scrollTargetBehavior(.paging)
+          .scrollPosition(id: $scrolledID)
+          .scrollTargetBehavior(.paging)
       case .photo(let url):
         PhotoView(loader: {try await loader(url)})
           .frame(width: width, height: width)
