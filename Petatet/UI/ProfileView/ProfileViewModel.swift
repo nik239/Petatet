@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import PhotosUI
+import _PhotosUI_SwiftUI
 
 @MainActor
 final class ProfileViewModel: ObservableObject {
@@ -18,7 +20,7 @@ final class ProfileViewModel: ObservableObject {
   @Published var profile: Profile?
   lazy var isSelf: Bool = {uid == appState.uid}()
   
-  init(container: DIContainer, uid: String?) {
+  init(container: DIContainer, uid: String? = nil) {
     self.container = container
     self.appState = container.appState
     self.apiService = container.services.APIService
@@ -66,6 +68,20 @@ final class ProfileViewModel: ObservableObject {
   func unfollow() {
     Task {
       try await apiService.followUser(accessToken: appState.token, uid: uid)
+      try await getProfile(for: uid)
+    }
+  }
+  
+  func updateProfilePhoto(item: PhotosPickerItem?) {
+    guard let item = item else {
+      return
+    }
+    Task {
+      let imageData = try await item.loadTransferable(type: Data.self)
+      guard let image = imageData else {
+        return
+      }
+      try await apiService.updateProfilePhoto(accessToken: appState.token, image: image)
       try await getProfile(for: uid)
     }
   }

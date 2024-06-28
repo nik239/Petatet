@@ -16,6 +16,7 @@ extension RealAPIService {
     case createAccount = "create-account"
     case userData = "get-user-data"
     case followUser = "follow-user"
+    case updateProfilePhoto = "update-user-data"
   }
   
   func URLStringFor(endpoint: Endpoint, withToken token: String? = nil) -> String {

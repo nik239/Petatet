@@ -131,6 +131,10 @@ final class APIServiceTests: XCTestCase {
     try! await apiService.followUser(accessToken: token, uid: "18011")
   }
   
+  func test_updateProfilePhoto() async {
+    try! await apiService.updateProfilePhoto(accessToken: token, image: Data())
+  }
+  
 //  func test_getImage() async {
 //    let loader = ImageLoader()
 //    let image = try? await loader.image("https://petatet.org/upload/photos/2024/05/IZgBkkS77f21BZFR2nPH_01_425d5a609da74caee2293c0283b98d39_image.jpg")

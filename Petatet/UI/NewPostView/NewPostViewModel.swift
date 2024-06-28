@@ -41,7 +41,7 @@ final class NewPostViewModel: ObservableObject {
   
   @Published var isValid: Bool = false
   
-  @Published var isUploadin = false
+  @Published var isUploading = false
   @Published var progress = 0.0
   
   init(container: DIContainer) {
@@ -115,41 +115,53 @@ final class NewPostViewModel: ObservableObject {
   }
   
   func uploadPost() {
+    let postText = userInput == placeHolder ? "" : userInput
     if self.video != nil {
+      self.isUploading = true
       Task {
         try await apiService.newPost(accessToken: appState.token,
                                      userID: appState.uid,
-                                     postText: self.userInput,
+                                     postText: postText,
                                      images: nil,
-                                     video: self.video,
-                                     progressHandler: nil)
+                                     video: self.video) {
+          self.progress = $0.fractionCompleted
+        }
+        
         clear()
+        self.progress = 0
+        self.isUploading = false
       }
       return
     }
     
     if self.images != [] {
       Task {
+        self.isUploading = true
         try await apiService.newPost(accessToken: appState.token,
                                      userID: appState.uid,
-                                     postText: self.userInput,
+                                     postText: postText,
                                      images: images,
                                      video: nil) {
           self.progress = $0.fractionCompleted
         }
+        
         clear()
+        self.progress = 0
+        self.isUploading = false
       }
       return
     }
     
     Task {
+      self.isUploading = true
       try await apiService.newPost(accessToken: appState.token,
                                    userID: appState.uid,
-                                   postText: self.userInput,
+                                   postText: postText,
                                    images: nil,
                                    video: nil,
                                    progressHandler: nil)
       clear()
+      self.isUploading = false
     }
   }
   

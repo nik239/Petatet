@@ -25,6 +25,9 @@ struct FeedView: View {
       }
       //.scrollTargetLayout()
     }
+    .refreshable {
+      viewModel.fetchPosts()
+    }
     //.scrollPosition(id: $viewModel.scrolledID)
   }
 }

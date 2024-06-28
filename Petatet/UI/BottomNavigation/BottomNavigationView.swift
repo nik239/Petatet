@@ -29,9 +29,7 @@ struct BottomNavigationView: View {
           }
           .tag(2)
         
-        Text("Profile view coming soon!")
-          .bold()
-          .foregroundColor(.orange)
+        ProfileView(viewModel: ProfileViewModel(container: container))
           .tabItem {
             Image(systemName: "person.crop.circle")
           }

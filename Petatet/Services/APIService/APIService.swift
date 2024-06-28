@@ -42,9 +42,13 @@ protocol APIService {
   
   func followUser(accessToken: String, uid: String) async throws
   
+  func updateProfilePhoto(accessToken: String, image: Data) async throws
+  
 }
 
 struct StubAPIService: APIService {
+  func updateProfilePhoto(accessToken: String, image: Data) async throws {}
+  
   func followUser(accessToken: String, uid: String) async throws {}
   
   func getUserData(accessToken: String, uid: String) async throws -> UserDataResponse {

@@ -14,15 +14,10 @@ private enum FocusableField {
 
 struct LoginView: View {
   @ObservedObject var viewModel: AuthViewModel
-  
   @FocusState private var focus: FocusableField?
   
   var body: some View {
     VStack {
-//      Text("Login")
-//        .font(.largeTitle)
-//        .fontWeight(.bold)
-//        .frame(maxWidth: .infinity, alignment: .leading)
       HStack {
         Image(systemName: "at")
         TextField("Username", text: $viewModel.email)

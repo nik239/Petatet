@@ -16,7 +16,12 @@ struct NewPostView: View {
   var body: some View {
     GeometryReader { geometry in
       VStack {
+        if viewModel.isUploading {
+          ProgressView(value: viewModel.progress)
+            .foregroundColor(.orange)
+        }
         ToolbarView(focused: _focused,
+                    isUploading: $viewModel.isUploading,
                     userInput: $viewModel.userInput,
                     pickerState: $viewModel.pickerState,
                     clearCaption: {viewModel.userInput = ""},
@@ -27,31 +32,31 @@ struct NewPostView: View {
         },
                     uploadPost: {viewModel.uploadPost()
           selectedPhotos = []
-        selectedVideo = nil})
+          selectedVideo = nil})
         Divider()
         TextEditor(text: $viewModel.userInput)
           .foregroundColor(viewModel.userInput == viewModel.placeHolder ? .gray : .primary)
           .focused($focused)
           .frame(height: geometry.size.height * 0.1)
           .padding()
-//          .overlay(
-//            RoundedRectangle(cornerRadius: geometry.size.width * 0.07)
-//              .stroke(.orange, lineWidth: 2)
-//          )
           .onAppear {
-            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (noti) in
-              withAnimation {
+            NotificationCenter.default.addObserver(forName:
+                                                    UIResponder.keyboardWillShowNotification,
+                                                   object: nil, queue: .main) { (noti) in
+//              withAnimation {
                 if viewModel.userInput == viewModel.placeHolder {
                   viewModel.userInput = ""
                 }
-              }
+//              }
             }
-            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { (noti) in
-              withAnimation {
+            NotificationCenter.default.addObserver(forName:
+                                                    UIResponder.keyboardWillHideNotification,
+                                                   object: nil, queue: .main) { (noti) in
+//              withAnimation {
                 if viewModel.userInput == "" {
                   viewModel.userInput = viewModel.placeHolder
                 }
-              }
+//              }
             }
           }
         VStack {
@@ -115,13 +120,12 @@ struct NewPostView: View {
         .overlay {
           if focused {
             Color.black.opacity(0.5)
+              .edgesIgnoringSafeArea(.all)
               .onTapGesture {
                 self.focused = false
               }
           }
         }
-      }.overlay {
-        
       }
     }
   }

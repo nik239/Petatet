@@ -129,10 +129,6 @@ struct ProfileView: View {
                 }
               }
             }
-            Divider()
-            Button(action: {self.isOverlayed = false}){
-              Text("Cancel")
-            }
           }
           .padding()
           .frame(width: width * 0.97)
@@ -140,6 +136,9 @@ struct ProfileView: View {
           .cornerRadius(7)
         }
       }
+    }
+    .onChange(of: selectedPhoto) {
+      viewModel.updateProfilePhoto(item: selectedPhoto)
     }
   }
 }

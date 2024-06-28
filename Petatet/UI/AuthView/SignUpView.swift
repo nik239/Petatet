@@ -15,20 +15,14 @@ private enum FocusableField {
 
 struct SignupView: View {
   @ObservedObject var viewModel: AuthViewModel
-
   @FocusState private var focus: FocusableField?
   
   var body: some View {
     VStack {
-//      Text("Sign up")
-//        .font(.largeTitle)
-//        .fontWeight(.bold)
-//        .frame(maxWidth: .infinity, alignment: .leading)
-      
       HStack {
         Image(systemName: "at")
           .padding(.leading, 4)
-        TextField("Username", text: $viewModel.email)
+        TextField("Username", text: $viewModel.username)
           .textInputAutocapitalization(.never)
           .disableAutocorrection(true)
           .focused($focus, equals: .email)

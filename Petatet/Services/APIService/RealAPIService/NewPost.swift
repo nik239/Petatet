@@ -37,7 +37,10 @@ extension RealAPIService {
                              images: images,
                              progressHandler: progressHandler)
     case let (nil, video?):
-      try await uploadVideo(url: url, params: params, video: video)
+      try await uploadVideo(url: url,
+                            params: params,
+                            video: video,
+                            progressHandler: progressHandler)
     default:
       throw "A post can't contain both images and video!"
     }
@@ -77,18 +80,19 @@ extension RealAPIService {
       
       
       upload.uploadProgress { progress in
+        print(progress)
         progressHandler?(progress)
       }
       
       let response = try await upload.serializingString().value
-//      .serializingString().value
-//
-//      print(response)
+      print(response)
     }
     
-    func uploadVideo(url: String, params: [String: Any], video: Data) async throws {
-      let response = try await
-      AF.upload(
+    func uploadVideo(url: String,
+                     params: [String: Any],
+                     video: Data,
+                     progressHandler: ((Progress) -> Void)? = nil) async throws {
+      let upload = AF.upload(
         multipartFormData: { (multipartFormData) in
           for (key, value) in params {
             multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!,
@@ -103,8 +107,14 @@ extension RealAPIService {
         usingThreshold: UInt64.init(),
         method: .post,
         headers: headers)
-      .serializingString().value
       
+      upload.uploadProgress { progress in
+        print(progress)
+        progressHandler?(progress)
+      }
+      
+      
+      let response = try await upload.serializingString().value
       print(response)
     }
   }
