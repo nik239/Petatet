@@ -118,7 +118,17 @@ final class APIServiceTests: XCTestCase {
   }
   
   func test_getUserData() async {
-    try! await apiService.getUserData(accessToken: token, uid: "18011")
+    let response = try! await apiService.getUserData(accessToken: token, uid: "18011")
+    switch response{
+    case .success(let profile):
+      print(profile.isFollowing!)
+    case .failure:
+      XCTFail()
+    }
+  }
+  
+  func test_followUser() async {
+    try! await apiService.followUser(accessToken: token, uid: "18011")
   }
   
 //  func test_getImage() async {

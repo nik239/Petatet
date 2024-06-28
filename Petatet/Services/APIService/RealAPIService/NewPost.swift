@@ -14,7 +14,8 @@ extension RealAPIService {
                userID: String,
                postText: String,
                images: [Data]? = nil,
-               video: Data? = nil)
+               video: Data? = nil,
+               progressHandler: ((Progress) -> Void)? = nil)
   
   async throws {
     let url = URLStringFor(endpoint: .newPost, withToken: accessToken)
@@ -31,7 +32,10 @@ extension RealAPIService {
     case (nil, nil):
       try await uploadTextPost(url: url, params: params)
     case let (images?, nil):
-      try await uploadImages(url: url, params: params, images: images)
+      try await uploadImages(url: url,
+                             params: params,
+                             images: images,
+                             progressHandler: progressHandler)
     case let (nil, video?):
       try await uploadVideo(url: url, params: params, video: video)
     default:
@@ -49,9 +53,11 @@ extension RealAPIService {
       print(response)
     }
     
-    func uploadImages(url: String, params: [String: Any], images: [Data]) async throws {
-      let response = try await
-      AF.upload(
+    func uploadImages(url: String,
+                      params: [String: Any],
+                      images: [Data],
+                      progressHandler: ((Progress) -> Void)? = nil) async throws {
+      let upload = AF.upload(
         multipartFormData: { (multipartFormData) in
           for (key, value) in params {
             multipartFormData.append("\(value)".data(using: String.Encoding.utf8)!,
@@ -68,9 +74,16 @@ extension RealAPIService {
         usingThreshold: UInt64.init(),
         method: .post,
         headers: headers)
-      .serializingString().value
       
-      print(response)
+      
+      upload.uploadProgress { progress in
+        progressHandler?(progress)
+      }
+      
+      let response = try await upload.serializingString().value
+//      .serializingString().value
+//
+//      print(response)
     }
     
     func uploadVideo(url: String, params: [String: Any], video: Data) async throws {

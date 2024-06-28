@@ -21,9 +21,8 @@ struct DIContainer {
             MediaLoader: StubMediaLoader())
     }
   }
-  #if DEBUG
+
   static var preview: Self {
     .init(appState: AppState.preview, services: .stub)
   }
-  #endif
 }

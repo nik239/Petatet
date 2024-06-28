@@ -49,19 +49,16 @@ final class AppState: ObservableObject {
     self.authState = .unauthenticated
   }
   
-  #if DEBUG
   private init(authState: AuthState) {
     self.authState = authState
     self.userDefaults = .standard
     self.uid = "nivanov"
     self.token = "984370165166e874b086ace59c45a7e2173b539706b55575430a064e2379c922b0dad51688699875ad5ab36761669d6eadbaee691c4a1d22"
   }
-  #endif
 }
 
-#if DEBUG
 //MARK: - Preview
 extension AppState {
   static var preview = AppState(authState: .authenticated)
 }
-#endif
+

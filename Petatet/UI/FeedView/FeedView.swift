@@ -29,6 +29,12 @@ struct FeedView: View {
   }
 }
 
+extension FeedView: Equatable {
+  static func == (lhs: FeedView, rhs: FeedView) -> Bool {
+    return true
+  }
+}
+
 #Preview {
   FeedView(viewModel: FeedViewModel(container: .preview, type: .main))
 }

@@ -63,6 +63,8 @@
 		A8B1E5F82C2DB44200FBE748 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1E5F72C2DB44200FBE748 /* ProfileView.swift */; };
 		A8B1E5FA2C2DB45600FBE748 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1E5F92C2DB45600FBE748 /* ProfileViewModel.swift */; };
 		A8B1E5FC2C2DB5A900FBE748 /* GetUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1E5FB2C2DB5A900FBE748 /* GetUserData.swift */; };
+		A8B1E5FF2C2E009400FBE748 /* CountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1E5FE2C2E009400FBE748 /* CountView.swift */; };
+		A8B1E6012C2E396700FBE748 /* FollowUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B1E6002C2E396700FBE748 /* FollowUser.swift */; };
 		A8D395152C27A13600EF9BCA /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D395142C27A13600EF9BCA /* ImageView.swift */; };
 		A8D395182C28385000EF9BCA /* ImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D395172C28385000EF9BCA /* ImagesView.swift */; };
 		A8D3951A2C284AA400EF9BCA /* VideoPreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D395192C284AA400EF9BCA /* VideoPreView.swift */; };
@@ -154,6 +156,8 @@
 		A8B1E5F72C2DB44200FBE748 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		A8B1E5F92C2DB45600FBE748 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		A8B1E5FB2C2DB5A900FBE748 /* GetUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserData.swift; sourceTree = "<group>"; };
+		A8B1E5FE2C2E009400FBE748 /* CountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountView.swift; sourceTree = "<group>"; };
+		A8B1E6002C2E396700FBE748 /* FollowUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowUser.swift; sourceTree = "<group>"; };
 		A8D395142C27A13600EF9BCA /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		A8D395172C28385000EF9BCA /* ImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesView.swift; sourceTree = "<group>"; };
 		A8D395192C284AA400EF9BCA /* VideoPreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreView.swift; sourceTree = "<group>"; };
@@ -433,8 +437,17 @@
 			children = (
 				A8B1E5F72C2DB44200FBE748 /* ProfileView.swift */,
 				A8B1E5F92C2DB45600FBE748 /* ProfileViewModel.swift */,
+				A8B1E5FD2C2E007800FBE748 /* Components */,
 			);
 			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		A8B1E5FD2C2E007800FBE748 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A8B1E5FE2C2E009400FBE748 /* CountView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		A8D395162C28382900EF9BCA /* Components */ = {
@@ -458,6 +471,7 @@
 				A88F59812C29D70D001F6602 /* LikePost.swift */,
 				A88F59832C29DA6C001F6602 /* CreateAccount.swift */,
 				A8B1E5FB2C2DB5A900FBE748 /* GetUserData.swift */,
+				A8B1E6002C2E396700FBE748 /* FollowUser.swift */,
 			);
 			path = RealAPIService;
 			sourceTree = "<group>";
@@ -579,6 +593,7 @@
 				A84BE2352C25D89500FD48DA /* ArrayWindow.swift in Sources */,
 				A8001A232BED661500232C76 /* Media.swift in Sources */,
 				A80019FF2BEC6FDF00232C76 /* PreviewPosts.swift in Sources */,
+				A8B1E6012C2E396700FBE748 /* FollowUser.swift in Sources */,
 				A80019FB2BEC67F600232C76 /* Profile.swift in Sources */,
 				A85AAD042BB360AD00B6E8C4 /* Auth.swift in Sources */,
 				A84BE23E2C27338200FD48DA /* PrefferedFont.swift in Sources */,
@@ -617,6 +632,7 @@
 				A8D3951C2C28CAD200EF9BCA /* ToolbarView.swift in Sources */,
 				A80019F12BE6FF1700232C76 /* VideoView.swift in Sources */,
 				A8B1E5F82C2DB44200FBE748 /* ProfileView.swift in Sources */,
+				A8B1E5FF2C2E009400FBE748 /* CountView.swift in Sources */,
 				A8001A272BEDB27000232C76 /* ScrollIndicator.swift in Sources */,
 				A8001A162BED3A4700232C76 /* APIService.swift in Sources */,
 				A8D3951A2C284AA400EF9BCA /* VideoPreView.swift in Sources */,
@@ -795,7 +811,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nikivanov.Petatet;
+				PRODUCT_BUNDLE_IDENTIFIER = "Petatet-iOS-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -828,7 +844,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nikivanov.Petatet;
+				PRODUCT_BUNDLE_IDENTIFIER = "Petatet-iOS-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -8,11 +8,7 @@
 import Foundation
 
 struct PreviewPosts {
-  static let author = Profile(uid: "1",
-                      username: "ace" ,
-                      name: Profile.Name(first: "Ace",
-                                        last: "Ventura"),
-                      avatar: LocalFiles.avatar)
+  static let author = Profile.preview
   
   let posts: [Post] = [
     Post(uid: "1",

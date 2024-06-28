@@ -41,6 +41,9 @@ final class NewPostViewModel: ObservableObject {
   
   @Published var isValid: Bool = false
   
+  @Published var isUploadin = false
+  @Published var progress = 0.0
+  
   init(container: DIContainer) {
     self.apiService = container.services.APIService
     self.appState = container.appState
@@ -104,21 +107,23 @@ final class NewPostViewModel: ObservableObject {
     }
   }
   
-  func clearMediaSelection() {
+  func clear() {
     self.images = []
     self.video = nil
     self.pickerState = .neutral
+    self.userInput = placeHolder 
   }
   
   func uploadPost() {
     if self.video != nil {
       Task {
         try await apiService.newPost(accessToken: appState.token,
-                                    userID: appState.uid,
+                                     userID: appState.uid,
                                      postText: self.userInput,
                                      images: nil,
-                                     video: self.video)
-        clearMediaSelection()
+                                     video: self.video,
+                                     progressHandler: nil)
+        clear()
       }
       return
     }
@@ -129,8 +134,10 @@ final class NewPostViewModel: ObservableObject {
                                      userID: appState.uid,
                                      postText: self.userInput,
                                      images: images,
-                                     video: nil)
-        clearMediaSelection()
+                                     video: nil) {
+          self.progress = $0.fractionCompleted
+        }
+        clear()
       }
       return
     }
@@ -140,8 +147,9 @@ final class NewPostViewModel: ObservableObject {
                                    userID: appState.uid,
                                    postText: self.userInput,
                                    images: nil,
-                                   video: nil)
-      clearMediaSelection()
+                                   video: nil,
+                                   progressHandler: nil)
+      clear()
     }
   }
   

@@ -23,7 +23,7 @@ struct NewPostView: View {
                     clearMedia: {
           selectedPhotos = []
           selectedVideo = nil
-          viewModel.clearMediaSelection()
+          viewModel.clear()
         },
                     uploadPost: {viewModel.uploadPost()
           selectedPhotos = []
@@ -120,6 +120,8 @@ struct NewPostView: View {
               }
           }
         }
+      }.overlay {
+        
       }
     }
   }

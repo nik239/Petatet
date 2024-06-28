@@ -15,7 +15,7 @@ final class ProfileViewModel: ObservableObject {
   let mediLoader: MediaLoader
   
   var uid: String
-  var profile: Profile?
+  @Published var profile: Profile?
   lazy var isSelf: Bool = {uid == appState.uid}()
   
   init(container: DIContainer, uid: String?) {
@@ -28,10 +28,11 @@ final class ProfileViewModel: ObservableObject {
     } else {
       self.uid = appState.uid
     }
-    getProfile(for: self.uid)
+    Task {
+      try await getProfile(for: self.uid)
+    }
   }
   
-  #if DEBUG
   init() {
     self.container = .preview
     self.appState = container.appState
@@ -40,17 +41,32 @@ final class ProfileViewModel: ObservableObject {
     self.uid = appState.uid
     self.profile = Profile.preview
   }
-  #endif
   
-  func getProfile(for uid: String) {
+  func getProfile(for uid: String) async throws {
+    let response = try await apiService.getUserData(accessToken: appState.token, uid: uid)
+    switch response {
+    case .success(let profile):
+      self.profile = profile
+    case .failure:
+      self.profile = nil
+    }
+  }
+  
+  func logOut() {
+    appState.logOut()
+  }
+  
+  func follow() {
     Task {
-      let response = try await apiService.getUserData(accessToken: appState.token, uid: uid)
-      switch response {
-      case .success(let profile):
-        self.profile = profile
-      case .failure:
-        self.profile = nil
-      }
+      try await apiService.followUser(accessToken: appState.token, uid: uid)
+      try await getProfile(for: uid)
+    }
+  }
+  
+  func unfollow() {
+    Task {
+      try await apiService.followUser(accessToken: appState.token, uid: uid)
+      try await getProfile(for: uid)
     }
   }
 }
