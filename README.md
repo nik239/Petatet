@@ -13,5 +13,6 @@ Petatet was built using an existing API, as an update to a much older app. The p
 
 ## Screencast 
 ![Auth](https://github.com/nik239/Petatet/blob/main/login.gif)
-
-
+![Feed](https://github.com/nik239/Petatet/blob/main/feed%20(1).gif)
+![VideoFeed](https://github.com/nik239/Petatet/blob/main/videofeed.gif)
+![FileUpload](https://github.com/nik239/Petatet/blob/main/fileUpload.gif)
